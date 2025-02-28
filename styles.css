@@ -1,26 +1,35 @@
 /* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); /* Fundo de gradiente */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
 /* Cabeçalho */
 header {
-    text-align: center;
     margin: 20px 0;
 }
 
 #logo {
-    width: 200px; /* Tamanho do logo */
+    width: 150px; /* Logo menor */
     height: auto;
     max-width: 100%;
+    border-radius: 50%; /* Logo arredondado */
+    border: 5px solid #fff; /* Borda branca no logo */
 }
 
 h1 {
-    font-size: 2.5rem;
-    color: #333;
+    font-size: 2.8rem;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra no título */
 }
 
 /* Imagens lado a lado */
@@ -32,35 +41,89 @@ h1 {
 }
 
 .image-container img {
-    width: 720px; /* Controlando o tamanho das imagens */
+    width: 220px; /* Tamanho ajustado das imagens */
     height: auto;
+    border-radius: 15px; /* Bordas arredondadas nas imagens */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave nas imagens */
 }
 
 /* Tocador de Música */
 .music-player {
-    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 15px;
     margin-top: 20px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-player h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #fff;
 }
 
 /* Botões de controle */
-#playPauseBtn, #nextBtn {
+button {
     background-color: #ff8c00;
-    color: white;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 25px;
+    font-size: 18px;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-    margin-right: 10px;
+    border-radius: 50px; /* Botões arredondados */
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    margin: 10px;
+    display: inline-block;
 }
 
-#playPauseBtn:hover, #nextBtn:hover {
-    background-color: #e07b00;
+button:hover {
+    background-color: #e07b00; /* Cor do botão quando passar o mouse */
+    transform: scale(1.1); /* Efeito de aumento no botão */
+}
+
+button:focus {
+    outline: none; /* Remove o contorno quando o botão é clicado */
 }
 
 /* Controle de Volume */
 #volumeControl {
     margin-top: 20px;
-    width: 200px;
+    width: 80%; /* Mais largo */
+    max-width: 250px;
+    border-radius: 10px;
+    background-color: #fff;
+    height: 8px;
+    appearance: none;
+}
+
+#volumeControl::-webkit-slider-runnable-track {
+    background: #fff;
+    height: 8px;
+}
+
+#volumeControl::-webkit-slider-thumb {
+    background: #ff8c00;
+    border-radius: 50%;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Rodapé */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}
+
+footer p {
+    margin: 0;
 }
