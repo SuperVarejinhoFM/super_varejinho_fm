@@ -23,8 +23,12 @@
     <!-- Tocador de Música -->
     <div class="music-player">
         <h2>Tocando Agora: Super Varejinho FM</h2>
-        <audio controls>
-            <source src="RADIO/audio/audio1.mp3" type="audio/mpeg"> <!-- Caminho para o áudio -->
+        
+        <!-- Adicionando botão customizado de Play/Pause -->
+        <button id="playPauseBtn">Play</button>
+        
+        <audio id="audioPlayer">
+            <source src="RADIO/audio/audio1.mp3" type="audio/mpeg">
             Seu navegador não suporta o elemento de áudio.
         </audio>
     </div>
