@@ -3,36 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="styles.css"> <!-- Caminho para o CSS -->
+    <title>Super Varejinho FM</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Cabeçalho -->
     <header>
-        <img id="logo" src="RADIO/images/logo.png" alt="Super Varejinho FM Logo"> <!-- Caminho para o logo -->
-        <h1></h1>
+        <img id="logo" src="RADIO/images/logo.png" alt="Super Varejinho FM Logo">
+        <h1>Super Varejinho FM</h1>
     </header>
 
-    <!-- Banners (imagens alinhadas horizontalmente) -->
-    <div class="image-container">
-        <img src="RADIO/images/banner1.png" alt="Banner 1">
-        <img src="RADIO/images/banner2.png" alt="Banner 2">
-        <img src="RADIO/images/banner3.png" alt="Banner 3">
-    </div>
-
-    <!-- Tocador de Música -->
+    <!-- Tocador de música -->
     <div class="music-player">
-        <h2>Tocando Agora: Super Varejinho FM</h2>
-        
-        <!-- Botões de controle -->
-        <button id="playPauseBtn">Play</button> <!-- Botão Play/Pause -->
-        <button id="nextBtn">Avançar</button> <!-- Botão Avançar -->
-        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1"> <!-- Controle de Volume -->
-
-        <audio id="audioPlayer">
-            <source src="RADIO/audio/audio1.mp3" type="audio/mpeg">
+        <h2>Tocando Agora</h2>
+        <audio id="audioPlayer" controls>
+            <source id="audioSource" src="RADIO/audio/audio1.mp3" type="audio/mpeg">
             Seu navegador não suporta o elemento de áudio.
         </audio>
+
+        <!-- Botões de Play/Pause e Avançar -->
+        <button id="playPauseButton">Play</button>
+        <button id="nextButton">Avançar</button>
     </div>
 
     <!-- Rodapé -->
@@ -40,6 +31,6 @@
         <p>&copy; 2025 Super Varejinho FM. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="script.js"></script> <!-- Caminho para o JS -->
+    <script src="script.js"></script>
 </body>
 </html>
