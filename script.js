@@ -1,10 +1,5 @@
-const audioPlayer = document.getElementById('audioPlayer');
-const audioSource = document.getElementById('audioSource');
-const playPauseButton = document.getElementById('playPauseButton');
-const nextButton = document.getElementById('nextButton');
-
-// Lista de arquivos de áudio
-const audioFiles = [
+// Array com os caminhos dos arquivos de áudio
+const audios = [
     'RADIO/audio/audio1.mp3',
     'RADIO/audio/audio2.mp3',
     'RADIO/audio/audio3.mp3',
@@ -45,38 +40,46 @@ const audioFiles = [
     'RADIO/audio/audio38.mp3'
 ];
 
-let currentTrack = 0;  // Posição inicial na lista de áudio
+let currentAudioIndex = 0;
+const audioPlayer = document.getElementById('audioPlayer');
+const playButton = document.getElementById('playBtn');
+const prevButton = document.getElementById('prevBtn');
+const nextButton = document.getElementById('nextBtn');
 
-// Função para carregar e tocar a música
-function loadAndPlay() {
-    audioSource.src = audioFiles[currentTrack]; // Atualiza a fonte do áudio
-    audioPlayer.load();  // Carrega o novo arquivo de áudio
-    audioPlayer.play();  // Começa a tocar o áudio
+// Função para carregar a próxima música
+function loadNextAudio() {
+    currentAudioIndex = (currentAudioIndex + 1) % audios.length;
+    audioPlayer.src = audios[currentAudioIndex];
+    audioPlayer.play();
 }
 
-// Alternar entre Play/Pause
+// Função para carregar a música anterior
+function loadPrevAudio() {
+    currentAudioIndex = (currentAudioIndex - 1 + audios.length) % audios.length;
+    audioPlayer.src = audios[currentAudioIndex];
+    audioPlayer.play();
+}
+
+// Função de play/pause
 function togglePlayPause() {
     if (audioPlayer.paused) {
-        audioPlayer.play();  // Inicia a música
-        playPauseButton.innerHTML = "Pause";  // Altera o texto do botão
+        audioPlayer.play();
+        playButton.textContent = 'Pause';
     } else {
-        audioPlayer.pause();  // Pausa a música
-        playPauseButton.innerHTML = "Play";  // Altera o texto do botão
+        audioPlayer.pause();
+        playButton.textContent = 'Play';
     }
 }
 
-// Função para avançar para o próximo áudio
-function nextTrack() {
-    currentTrack++;  // Avança para a próxima música
-    if (currentTrack >= audioFiles.length) {
-        currentTrack = 0;  // Se atingir o final, volta para o início
-    }
-    loadAndPlay();  // Atualiza e começa a próxima música
-}
+// Evento para o botão de "Play/Pause"
+playButton.addEventListener('click', togglePlayPause);
 
-// Inicializa o player
-loadAndPlay();
+// Evento para o botão "Próxima"
+nextButton.addEventListener('click', loadNextAudio);
 
-// Event listeners
-playPauseButton.addEventListener('click', togglePlayPause);
-nextButton.addEventListener('click', nextTrack);
+// Evento para o botão "Anterior"
+prevButton.addEventListener('click', loadPrevAudio);
+
+// Inicia o primeiro áudio
+audioPlayer.src = audios[currentAudioIndex];
+audioPlayer.play();
