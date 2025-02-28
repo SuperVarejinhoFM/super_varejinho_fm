@@ -67,22 +67,22 @@ h1 {
     color: #fff;
 }
 
-/* Botões de controle */
+/* Estilo geral dos botões */
 button {
-    background-color: #ff8c00;
+    background-color: #007BFF; /* Cor azul para os botões */
     color: #fff;
     border: none;
     padding: 12px 25px;
     font-size: 18px;
     cursor: pointer;
-    border-radius: 50px; /* Botões arredondados */
+    border-radius: 50px; /* Bordas arredondadas */
     transition: background-color 0.3s, transform 0.2s ease-in-out;
     margin: 10px;
     display: inline-block;
 }
 
 button:hover {
-    background-color: #e07b00; /* Cor do botão quando passar o mouse */
+    background-color: #0056b3; /* Cor azul mais escura ao passar o mouse */
     transform: scale(1.1); /* Efeito de aumento no botão */
 }
 
