@@ -1,9 +1,9 @@
-// Selecionando os elementos do áudio e dos botões
-const audioPlayer = document.querySelector('audio');
-const playButton = document.querySelector('#playButton');
-const nextButton = document.querySelector('#nextButton');
+const audioPlayer = document.getElementById('audioPlayer');
+const audioSource = document.getElementById('audioSource');
+const playPauseButton = document.getElementById('playPauseButton');
+const nextButton = document.getElementById('nextButton');
 
-// Lista de arquivos de áudio com o caminho completo
+// Lista de arquivos de áudio
 const audioFiles = [
     'RADIO/audio/audio1.mp3',
     'RADIO/audio/audio2.mp3',
@@ -45,38 +45,38 @@ const audioFiles = [
     'RADIO/audio/audio38.mp3'
 ];
 
-// Variável para controlar a música atual
-let currentTrack = 0;
+let currentTrack = 0;  // Posição inicial na lista de áudio
 
-// Função para atualizar o áudio
-function updateAudio() {
-    audioPlayer.src = audioFiles[currentTrack]; // Define o arquivo de áudio atual
-    audioPlayer.play(); // Começa a tocar o áudio
+// Função para carregar e tocar a música
+function loadAndPlay() {
+    audioSource.src = audioFiles[currentTrack]; // Atualiza a fonte do áudio
+    audioPlayer.load();  // Carrega o novo arquivo de áudio
+    audioPlayer.play();  // Começa a tocar o áudio
 }
 
-// Função para alternar o estado de play/pause
+// Alternar entre Play/Pause
 function togglePlayPause() {
     if (audioPlayer.paused) {
-        audioPlayer.play(); // Inicia a música
-        playButton.innerHTML = "Pause"; // Altera o texto do botão para "Pause"
+        audioPlayer.play();  // Inicia a música
+        playPauseButton.innerHTML = "Pause";  // Altera o texto do botão
     } else {
-        audioPlayer.pause(); // Pausa a música
-        playButton.innerHTML = "Play"; // Altera o texto do botão para "Play"
+        audioPlayer.pause();  // Pausa a música
+        playPauseButton.innerHTML = "Play";  // Altera o texto do botão
     }
 }
 
-// Função para avançar para a próxima música
+// Função para avançar para o próximo áudio
 function nextTrack() {
-    currentTrack++; // Avança para o próximo áudio na lista
+    currentTrack++;  // Avança para a próxima música
     if (currentTrack >= audioFiles.length) {
-        currentTrack = 0; // Se chegar ao final, volta para o primeiro áudio
+        currentTrack = 0;  // Se atingir o final, volta para o início
     }
-    updateAudio(); // Atualiza o áudio e começa a tocar
+    loadAndPlay();  // Atualiza e começa a próxima música
 }
 
-// Inicializa o áudio
-updateAudio();
+// Inicializa o player
+loadAndPlay();
 
-// Adiciona os ouvintes de eventos para os botões
-playButton.addEventListener('click', togglePlayPause);
+// Event listeners
+playPauseButton.addEventListener('click', togglePlayPause);
 nextButton.addEventListener('click', nextTrack);
