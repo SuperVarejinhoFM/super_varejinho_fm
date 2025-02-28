@@ -1,29 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Varejinho FM</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css"> <!-- Caminho para o CSS -->
 </head>
+
 <body>
     <!-- Cabeçalho -->
     <header>
-        <img id="logo" src="RADIO/images/logo.png" alt="Super Varejinho FM Logo">
+        <img id="logo" src="RADIO/images/logo.png" alt="Super Varejinho FM Logo"> <!-- Caminho para o logo -->
         <h1>Super Varejinho FM</h1>
     </header>
 
-    <!-- Tocador de música -->
+    <!-- Banners (imagens alinhadas horizontalmente) -->
+    <div class="image-container">
+        <img src="RADIO/images/banner1.png" alt="Banner 1">
+        <img src="RADIO/images/banner2.png" alt="Banner 2">
+        <img src="RADIO/images/banner3.png" alt="Banner 3">
+    </div>
+
+    <!-- Tocador de Música -->
     <div class="music-player">
-        <h2>Tocando Agora</h2>
+        <h2>Tocando Agora: Super Varejinho FM</h2>
         <audio id="audioPlayer" controls>
-            <source id="audioSource" src="RADIO/audio/audio1.mp3" type="audio/mpeg">
+            <source src="RADIO/audio/audio1.mp3" type="audio/mpeg"> <!-- Caminho para o áudio -->
             Seu navegador não suporta o elemento de áudio.
         </audio>
-
-        <!-- Botões de Play/Pause e Avançar -->
-        <button id="playPauseButton">Play</button>
-        <button id="nextButton">Avançar</button>
+        <div>
+            <button id="prevBtn">Anterior</button>
+            <button id="playBtn">Play</button>
+            <button id="nextBtn">Próxima</button>
+        </div>
+        <input type="range" id="volumeControl" value="100" max="100" step="1">
     </div>
 
     <!-- Rodapé -->
@@ -33,4 +44,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
