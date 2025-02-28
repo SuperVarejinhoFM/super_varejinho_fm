@@ -1,85 +1,70 @@
-/* Estilo do corpo da página */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('RADIO/images/BG.png'); /* Caminho para o fundo */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
+    background-color: #f4f4f4;
     text-align: center;
+    color: #333;
 }
 
-/* Estilo do cabeçalho */
 header {
-    background-color: rgba(0, 0, 0, 0.6); /* Cor de fundo translúcida */
+    background-color: #333;
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 20px 0;
 }
 
-#logo {
-    max-width: 120px; /* Tamanho da logo ajustado */
-    height: auto;
-    margin-bottom: 15px;
+.logo-container img {
+    width: 150px;
+    margin-right: 10px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin: 0;
+    display: inline-block;
+    font-size: 2em;
+    vertical-align: middle;
 }
 
-/* Estilo para os banners */
 .image-container {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
+    gap: 10px;
+    margin: 20px 0;
 }
 
 .image-container img {
-    width: 234px; /* Tamanho fixo para as imagens */
-    height: 60px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: auto;
 }
 
-/* Estilo do tocador de música */
 .music-player {
-    background-color: rgba(0, 0, 0, 0.6); /* Cor de fundo translúcida */
-    color: white;
-    padding: 30px;
-    margin-top: 50px;
-    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.music-player h2 {
-    margin-bottom: 15px;
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-/* Estilo do rodapé */
-footer {
-    background-color: rgba(0, 0, 0, 0.6); /* Cor de fundo translúcida */
-    color: white;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+button {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    color: #333;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
+button:hover {
+    color: #007BFF;
+}
 
-    .image-container img {
-        width: 180px; /* Ajuste para telas menores */
-        height: 45px;
-    }
+button:focus {
+    outline: none;
+}
 
-    #logo {
-        max-width: 90px; /* Ajuste do logo */
-    }
+audio {
+    display: none;
 }
