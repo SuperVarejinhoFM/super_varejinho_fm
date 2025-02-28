@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Varejinho FM</title>
     <link rel="stylesheet" href="styles.css"> <!-- Caminho para o CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome para ícones -->
 </head>
 <body>
     <!-- Cabeçalho -->
     <header>
-        <div class="logo-container">
-            <img id="logo" src="RADIO/images/logo.png" alt="Super Varejinho FM Logo">
-            <h1>Super Varejinho FM</h1>
-        </div>
+        <img id="logo" src="RADIO/images/logo.png" alt="Super Varejinho FM Logo"> <!-- Caminho para o logo -->
+        <h1>Super Varejinho FM</h1>
     </header>
 
-    <!-- Banners -->
+    <!-- Banners (imagens alinhadas horizontalmente) -->
     <div class="image-container">
         <img src="RADIO/images/banner1.png" alt="Banner 1">
         <img src="RADIO/images/banner2.png" alt="Banner 2">
@@ -26,22 +23,10 @@
     <!-- Tocador de Música -->
     <div class="music-player">
         <h2>Tocando Agora: Super Varejinho FM</h2>
-
-        <!-- Controles personalizados -->
-        <div class="controls">
-            <button id="playButton" class="play-button"><i class="fas fa-play"></i></button>
-            <button id="prevButton"><i class="fas fa-backward"></i></button>
-            <button id="nextButton"><i class="fas fa-forward"></i></button>
-            
-            <!-- Controles de volume -->
-            <button id="volumeDown"><i class="fas fa-volume-down"></i></button>
-            <button id="volumeUp"><i class="fas fa-volume-up"></i></button>
-
-            <audio id="musicPlayer" preload="auto">
-                <source id="audioSource" src="RADIO/audio/audio1.mp3" type="audio/mpeg">
-                Seu navegador não suporta o elemento de áudio.
-            </audio>
-        </div>
+        <audio controls>
+            <source src="RADIO/audio/audio1.mp3" type="audio/mpeg"> <!-- Caminho para o áudio -->
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
     </div>
 
     <!-- Rodapé -->
