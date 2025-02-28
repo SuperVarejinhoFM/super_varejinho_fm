@@ -1,7 +1,7 @@
 /* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('RADIO/images/BG.png'); /* Usando a imagem BG.png */
+    background-image: url('./RADIO/images/BG.png'); /* Caminho corrigido para a imagem */
     background-size: cover; /* Faz a imagem cobrir toda a tela */
     background-position: center center; /* Centraliza a imagem */
     margin: 0;
