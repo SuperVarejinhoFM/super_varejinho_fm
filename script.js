@@ -3,50 +3,25 @@ const audioPlayer = document.querySelector('audio');
 const playButton = document.querySelector('#playButton');
 const nextButton = document.querySelector('#nextButton');
 
-// Lista de músicas (agora com todos os arquivos)
-const audioFiles = [
-    'RADIO/audio/audio1.mp3',
-    'RADIO/audio/audio2.mp3',
-    'RADIO/audio/audio3.mp3',
-    'RADIO/audio/audio4.mp3',
-    'RADIO/audio/audio5.mp3',
-    'RADIO/audio/audio6_oferta1.mp3',
-    'RADIO/audio/audio7.mp3',
-    'RADIO/audio/audio8.mp3',
-    'RADIO/audio/audio9.mp3',
-    'RADIO/audio/audio10.mp3',
-    'RADIO/audio/audio11.mp3',
-    'RADIO/audio/audio12_oferta2.mp3',
-    'RADIO/audio/audio13.mp3',
-    'RADIO/audio/audio14.mp3',
-    'RADIO/audio/audio15.mp3',
-    'RADIO/audio/audio16.mp3',
-    'RADIO/audio/audio17.mp3',
-    'RADIO/audio/audio18_oferta3.mp3',
-    'RADIO/audio/audio19.mp3',
-    'RADIO/audio/audio20.mp3',
-    'RADIO/audio/audio21.mp3',
-    'RADIO/audio/audio22.mp3',
-    'RADIO/audio/audio23.mp3',
-    'RADIO/audio/audio24_oferta4.mp3',
-    'RADIO/audio/audio25.mp3',
-    'RADIO/audio/audio26.mp3',
-    'RADIO/audio/audio27.mp3',
-    'RADIO/audio/audio28.mp3',
-    'RADIO/audio/audio29.mp3',
-    'RADIO/audio/audio30_oferta5.mp3',
-    'RADIO/audio/audio31.mp3',
-    'RADIO/audio/audio32.mp3',
-    'RADIO/audio/audio33.mp3',
-    'RADIO/audio/audio34.mp3',
-    'RADIO/audio/audio35.mp3',
-    'RADIO/audio/audio36_oferta6.mp3',
-    'RADIO/audio/audio37.mp3',
-    'RADIO/audio/audio38.mp3'
-];
+// Lista de arquivos de áudio. Vamos criar a sequência aqui
+const baseAudioPath = 'RADIO/audio/';
+const audioFiles = [];
 
-// Variável para controlar a música atual
-let currentTrack = 0;
+// Função para gerar a lista de arquivos de áudio
+function generateAudioList() {
+    for (let i = 1; i <= 38; i++) {  // Para 38 arquivos
+        // Definir os nomes dos arquivos sequenciais com a possibilidade de ofertas
+        let fileName = `audio${i}.mp3`;
+        // Adicionar o arquivo à lista
+        audioFiles.push(baseAudioPath + fileName);
+
+        // Verificar se o arquivo de "oferta" existe
+        if (i === 6 || i === 12 || i === 18 || i === 24 || i === 30 || i === 36) {
+            const offerFileName = `audio${i}_oferta${i / 6}.mp3`; // Cria o arquivo de oferta, ex: audio6_oferta1.mp3
+            audioFiles.push(baseAudioPath + offerFileName);
+        }
+    }
+}
 
 // Função para atualizar o áudio
 function updateAudio() {
@@ -73,6 +48,12 @@ function nextTrack() {
     }
     updateAudio();
 }
+
+// Variável para controlar a música atual
+let currentTrack = 0;
+
+// Gerar a lista de arquivos de áudio
+generateAudioList();
 
 // Inicializa o áudio
 updateAudio();
