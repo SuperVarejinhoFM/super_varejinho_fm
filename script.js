@@ -1,6 +1,12 @@
-// Array com os arquivos de áudio
+// Pegando os elementos do botão e do player de áudio
+const playPauseBtn = document.getElementById('playPauseBtn');
+const nextBtn = document.getElementById('nextBtn');
+const volumeControl = document.getElementById('volumeControl');
+const audioPlayer = document.getElementById('audioPlayer');
+
+// Lista de músicas (caminhos para os arquivos)
 const audioFiles = [
-    'audio1.mp3',
+     'audio1.mp3',
     'audio2.mp3',
     'audio3.mp3',
     'audio4.mp3',
@@ -40,79 +46,28 @@ const audioFiles = [
     'audio38.mp3'
 ];
 
-// Variáveis para o player de áudio
-const audioPlayer = document.getElementById('musicPlayer');
-const audioSource = document.getElementById('audioSource');
-const playButton = document.getElementById('playButton');
-const nextButton = document.getElementById('nextButton');
-const prevButton = document.getElementById('prevButton');
-const volumeUpButton = document.getElementById('volumeUp');
-const volumeDownButton = document.getElementById('volumeDown');
+let currentTrackIndex = 0; // Índice da música atual
 
-// Índice da música atual
-let currentSongIndex = 0;
-
-// Função para tocar a próxima música
-function playNextSong() {
-    currentSongIndex++;
-    if (currentSongIndex >= audioFiles.length) {
-        currentSongIndex = 0;
-    }
-
-    audioSource.src = `RADIO/audio/${audioFiles[currentSongIndex]}`;
-    audioPlayer.load();
-    audioPlayer.play();
-}
-
-// Função para voltar para a música anterior
-function playPrevSong() {
-    currentSongIndex--;
-    if (currentSongIndex < 0) {
-        currentSongIndex = audioFiles.length - 1;
-    }
-
-    audioSource.src = `RADIO/audio/${audioFiles[currentSongIndex]}`;
-    audioPlayer.load();
-    audioPlayer.play();
-}
-
-// Função para alternar o botão de play/pause
-function togglePlay() {
+// Função para alternar entre play e pause
+playPauseBtn.addEventListener('click', function() {
     if (audioPlayer.paused) {
         audioPlayer.play();
-        playButton.innerHTML = '<i class="fas fa-pause"></i>'; // Ícone de pause
+        playPauseBtn.textContent = 'Pause'; // Altera o texto para 'Pause' quando o áudio está tocando
     } else {
         audioPlayer.pause();
-        playButton.innerHTML = '<i class="fas fa-play"></i>'; // Ícone de play
+        playPauseBtn.textContent = 'Play'; // Altera o texto para 'Play' quando o áudio está pausado
     }
-}
+});
 
-// Função para aumentar o volume
-function increaseVolume() {
-    if (audioPlayer.volume < 1) {
-        audioPlayer.volume += 0.1;
-    }
-}
+// Função para avançar para a próxima música
+nextBtn.addEventListener('click', function() {
+    currentTrackIndex = (currentTrackIndex + 1) % audioFiles.length; // Avança para a próxima música (com loop)
+    audioPlayer.src = audioFiles[currentTrackIndex]; // Atualiza o arquivo de áudio
+    audioPlayer.play(); // Inicia a nova música
+    playPauseBtn.textContent = 'Pause'; // Muda o botão para 'Pause'
+});
 
-// Função para diminuir o volume
-function decreaseVolume() {
-    if (audioPlayer.volume > 0) {
-        audioPlayer.volume -= 0.1;
-    }
-}
-
-// Eventos para os botões
-playButton.addEventListener('click', togglePlay);
-nextButton.addEventListener('click', playNextSong);
-prevButton.addEventListener('click', playPrevSong);
-volumeUpButton.addEventListener('click', increaseVolume);
-volumeDownButton.addEventListener('click', decreaseVolume);
-
-// Evento de quando a música termina
-audioPlayer.addEventListener('ended', playNextSong);
-
-// Iniciar a reprodução do áudio quando a página carregar
-window.onload = () => {
-    audioPlayer.play();
-    playButton.innerHTML = '<i class="fas fa-pause"></i>'; // Ícone de pause
-};
+// Função para ajustar o volume
+volumeControl.addEventListener('input', function() {
+    audioPlayer.volume = volumeControl.value; // Ajusta o volume com base no controle deslizante
+});
