@@ -19,7 +19,7 @@ body {
 /* Cabeçalho */
 header {
     width: 100%; /* O cabeçalho ocupa a largura total da página */
-    background-color: #007BFF; /* Faixa azul */
+    background-color: #001D63; /* Faixa azul */
     height: 200px; /* Aumenta a altura da faixa azul */
     display: flex;
     justify-content: center; /* Centraliza a logo horizontalmente */
