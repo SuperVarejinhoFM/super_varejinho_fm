@@ -90,23 +90,6 @@ button:focus {
     outline: none; /* Remove o contorno quando o botão é clicado */
 }
 
-/* Controle de Volume */
-#volumeControl {
-    margin-top: 20px;
-    width: 80%; /* Mais largo */
-    max-width: 250px;
-    border-radius: 10px;
-    background-color: #fff;
-    height: 8px;
-    appearance: none;
-    position: relative;
-}
-
-#volumeControl::-webkit-slider-runnable-track {
-    background: #fff;
-    height: 8px;
-}
-
 /* Rodapé */
 footer {
     position: fixed;
