@@ -48,25 +48,27 @@ header {
 .carousel {
     display: flex;
     transition: transform 1s ease-in-out;
-    width: 100%;  /* Garante que o carrossel ocupe todo o espaço */
+    width: 100%;  /* Garantir que o carrossel ocupe todo o espaço */
+    position: relative; /* Necessário para aplicar o efeito de escala */
 }
 
 .banner {
     width: 350px;  /* Largura dos banners */
-    height: auto;
+    height: 200px;  /* Altura fixa */
     border-radius: 15px; 
-    margin: 0 15px;
+    margin: 0 15px;  /* Espaçamento entre os banners */
     transition: transform 0.5s ease-in-out;
-    object-fit: cover;
+    object-fit: cover;  /* Garante que as imagens se ajustem corretamente */
+    z-index: 1; /* Coloca todos os banners na mesma camada */
 }
 
-/* Aumentar/Diminuir a escala do banner ativo */
+/* Efeito de zoom - o banner central fica maior */
 .carousel .banner:nth-child(1) {
     transform: scale(0.8); 
 }
 
 .carousel .banner:nth-child(2) {
-    transform: scale(1.2); 
+    transform: scale(1.2);  /* Banner centralizado com zoom maior */
 }
 
 .carousel .banner:nth-child(3) {
