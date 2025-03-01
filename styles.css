@@ -18,23 +18,23 @@ body {
 
 /* Cabeçalho */
 header {
-    width: 100%; /* O cabeçalho ocupa a largura total da página */
-    background-color: #001D63; /* Faixa azul */
-    height: 200px; /* Aumenta a altura da faixa azul */
+    width: 100%; 
+    background-color: #007BFF; 
+    height: 200px; 
     display: flex;
-    justify-content: center; /* Centraliza a logo horizontalmente */
-    align-items: center; /* Centraliza a logo verticalmente */
+    justify-content: center; 
+    align-items: center; 
     position: relative;
-    z-index: 1; /* A faixa azul ficará atrás da logo */
+    z-index: 1;
 }
 
 #logo {
-    width: 280px; /* Aumenta o tamanho da logo */
+    width: 280px;
     height: auto;
     max-width: 100%;
-    border-radius: 0; /* Retira a borda arredondada da logo */
-    border: none; /* Remove qualquer borda da logo */
-    z-index: 2; /* A logo fica acima da faixa azul */
+    border-radius: 0;
+    border: none;
+    z-index: 2;
 }
 
 /* Carrossel de Banners */
