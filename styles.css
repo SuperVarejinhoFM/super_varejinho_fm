@@ -37,12 +37,6 @@ header {
     z-index: 2; /* A logo fica acima da faixa azul */
 }
 
-h1 {
-    font-size: 2.8rem;
-    color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
 /* Carrossel de Banners */
 .carousel-container {
     width: 80%;
