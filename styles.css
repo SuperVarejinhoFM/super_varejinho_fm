@@ -26,7 +26,7 @@ header {
     height: auto;
     max-width: 100%;
     border-radius: 50%; /* Logo arredondado */
-    border: 5px solid #fff; /* Borda branca no logo */
+    border: 15px solid #fff; /* Borda branca no logo */
 }
 
 h1 {
