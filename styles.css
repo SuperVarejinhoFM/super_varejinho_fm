@@ -65,11 +65,12 @@ header {
 
 .audio-bar {
     width: 15px; /* Largura das barras */
-    height: 60px; /* Altura das barras */
+    height: 60px; /* Altura inicial das barras */
     margin: 0 5px;
     background: linear-gradient(180deg, #001D63, #29C43C); /* Degradê entre as cores */
     border-radius: 5px;
     animation: bounce 0.5s ease-in-out infinite paused; /* Animação parada por padrão */
+    transition: height 0.1s ease-in-out;
 }
 
 /* Animação para as barras */
