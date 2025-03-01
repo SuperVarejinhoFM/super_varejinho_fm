@@ -1,33 +1,143 @@
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('./RADIO/images/BG.png');
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    background-color: #001D63; /* Mudando a cor da barra do cabeçalho */
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+#logo {
+    width: 250px; /* Aumentando o tamanho da logo */
+    height: auto;
+    border-radius: 0;
+    border: none;
+}
+
+/* Música e controles */
+.music-player {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.music-player h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Barra de Progresso */
+.progress-container {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+#progressBar {
+    width: 100%;
+}
+
 /* Barra de Áudio que sobe e desce */
 .audio-bar-container {
     position: relative;
-    height: 100px; /* Tamanho total da altura da barra */
+    height: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    overflow: hidden; /* Para garantir que as barras não saiam da área visível */
 }
 
 .audio-bar {
-    width: 20px;
-    height: 100%; /* A altura total da barra */
-    background-color: #ff8c00;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 0; /* Fixa a parte inferior da barra */
+    width: 10px;
+    height: 100%;
+    background: linear-gradient(to top, #001D63, #29C43C); /* Degradê entre as cores */
+    margin: 0 5px;
+    transition: transform 0.3s ease-in-out; /* Mantém as barras paradas quando a música não toca */
+}
+
+/* Animação de subida das barras */
+.audio-bar.bounce {
     animation: bounce 0.5s ease-in-out infinite;
 }
 
 @keyframes bounce {
     0% {
-        transform: scaleY(1); /* Sem escala no início */
+        transform: translateY(0);
     }
     50% {
-        transform: scaleY(2); /* Aumenta a parte de cima da barra */
+        transform: translateY(-20px);
     }
     100% {
-        transform: scaleY(1); /* Retorna ao tamanho original */
+        transform: translateY(0);
     }
+}
+
+/* Controle de Áudio */
+.audio-controls {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 20px 50px; /* Aumentando o tamanho do botão */
+    font-size: 24px; /* Aumentando o tamanho da fonte */
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    margin: 10px;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Rodapé */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}
+
+footer p {
+    margin: 0;
 }
