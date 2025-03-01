@@ -57,13 +57,13 @@ window.onload = function() {
 
 // Atualização das barras enquanto a música toca
 audioPlayer.addEventListener('play', function() {
-    document.querySelectorAll('.audio-bar').forEach(bar => {
+    document.querySelectorAll('.audio-bar-top').forEach(bar => {
         bar.style.animationPlayState = 'running'; // Iniciar animação das barras
     });
 
     // A cada 100ms, a altura das barras será alterada aleatoriamente
     setInterval(function() {
-        document.querySelectorAll('.audio-bar').forEach((bar, index) => {
+        document.querySelectorAll('.audio-bar-top').forEach((bar, index) => {
             const randomHeight = Math.floor(Math.random() * 60) + 30; // Altura aleatória para simular movimento
             bar.style.height = `${randomHeight + (index * 10)}px`; // Variação para cada barra
         });
@@ -72,7 +72,7 @@ audioPlayer.addEventListener('play', function() {
 
 // Quando a música for pausada, as barras param e voltam ao estado inicial
 audioPlayer.addEventListener('pause', function() {
-    document.querySelectorAll('.audio-bar').forEach(bar => {
+    document.querySelectorAll('.audio-bar-top').forEach(bar => {
         bar.style.animationPlayState = 'paused'; // Parar animação das barras
         bar.style.height = '60px'; // Voltar ao tamanho inicial
     });
