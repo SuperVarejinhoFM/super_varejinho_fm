@@ -52,7 +52,7 @@ function playRandomAudio() {
     let audioSource;
 
     // Se tivermos tocado 5 músicas, escolhemos uma oferta aleatória
-    if (playCount % 5 === 0) {
+    if (playCount % 5 === 0 && playCount !== 0) {
         // Escolhe uma música de oferta aleatória
         const randomOfferIndex = Math.floor(Math.random() * offerAudios.length);
         audioSource = offerAudios[randomOfferIndex];
