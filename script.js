@@ -40,7 +40,7 @@ const audios = [
     'RADIO/audio/audio38.mp3'
 ];
 
-// Selecionar um áudio aleatório
+// Seleciona uma música aleatória
 function getRandomAudio() {
     const randomIndex = Math.floor(Math.random() * audios.length);
     return audios[randomIndex];
