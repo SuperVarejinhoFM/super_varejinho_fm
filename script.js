@@ -66,14 +66,25 @@ function togglePlayPause() {
     }
 }
 
-// Atualizar a animação das barras com base no áudio
+// Função para atualizar as barras enquanto a música toca
 audioPlayer.addEventListener('play', function() {
+    document.querySelectorAll('.audio-bar').forEach(bar => {
+        bar.style.animationPlayState = 'running'; // Iniciar animação das barras
+    });
+
     setInterval(function() {
         const randomHeight = Math.floor(Math.random() * 60) + 30; // Altura aleatória para simular movimento
         document.querySelectorAll('.audio-bar').forEach((bar, index) => {
             bar.style.height = `${randomHeight + (index * 10)}px`; // Variação para cada barra
         });
     }, 100);
+});
+
+// Quando a música for pausada, as barras param
+audioPlayer.addEventListener('pause', function() {
+    document.querySelectorAll('.audio-bar').forEach(bar => {
+        bar.style.animationPlayState = 'paused'; // Parar animação das barras
+    });
 });
 
 // Iniciar o primeiro áudio
