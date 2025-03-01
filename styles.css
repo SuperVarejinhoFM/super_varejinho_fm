@@ -16,20 +16,22 @@ body {
     background-attachment: fixed;
 }
 
-/* Cabeçalho */
+/* Cabeçalho - Movendo para cima */
 header {
     width: 100%;
-    background-color: #001D63; /* Mudando a cor da barra do cabeçalho */
-    height: 220px;
+    background-color: #001D63; /* Cor da faixa azul */
+    height: 160px; /* Reduzindo altura para ficar mais próximo do topo */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
+    margin-top: 0; /* Remover qualquer margem que afaste do topo */
+    padding-top: 10px; /* Ajuste de padding para deixar a logo mais próxima do topo */
 }
 
 #logo {
-    width: 250px; /* Aumentando o tamanho da logo */
+    width: 220px; /* Tamanho da logo ajustado */
     height: auto;
     border-radius: 0;
     border: none;
@@ -44,12 +46,6 @@ header {
     width: 80%;
     max-width: 500px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.music-player h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #fff;
 }
 
 /* Barra de Progresso */
@@ -75,15 +71,11 @@ header {
 }
 
 .audio-bar {
-    width: 10px;
-    height: 100%;
-    background: linear-gradient(to top, #001D63, #29C43C); /* Degradê entre as cores */
-    margin: 0 5px;
-    transition: transform 0.3s ease-in-out; /* Mantém as barras paradas quando a música não toca */
-}
-
-/* Animação de subida das barras */
-.audio-bar.bounce {
+    width: 20px;
+    height: 20px;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    position: absolute;
     animation: bounce 0.5s ease-in-out infinite;
 }
 
@@ -108,8 +100,8 @@ button {
     background-color: #007BFF;
     color: #fff;
     border: none;
-    padding: 20px 50px; /* Aumentando o tamanho do botão */
-    font-size: 24px; /* Aumentando o tamanho da fonte */
+    padding: 12px 25px;
+    font-size: 18px;
     cursor: pointer;
     border-radius: 50px;
     transition: background-color 0.3s, transform 0.2s ease-in-out;
