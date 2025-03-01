@@ -67,11 +67,12 @@ header {
     width: 15px; /* Largura das barras */
     height: 60px; /* Altura das barras */
     margin: 0 5px;
-    background-color: #ff8c00;
+    background: linear-gradient(180deg, #001D63, #29C43C); /* Degradê entre as cores */
     border-radius: 5px;
-    animation: bounce 0.5s ease-in-out infinite;
+    animation: bounce 0.5s ease-in-out infinite paused; /* Animação parada por padrão */
 }
 
+/* Animação para as barras */
 @keyframes bounce {
     0% {
         transform: translateY(0);
