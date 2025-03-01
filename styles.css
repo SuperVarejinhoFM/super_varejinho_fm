@@ -35,6 +35,39 @@ header {
     border: none;
 }
 
+/* Carrossel de Banners */
+.carousel-container {
+    width: 80%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: 30px 0;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.banner {
+    width: 350px;
+    height: auto;
+    border-radius: 15px;
+    margin: 0 15px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel .banner:nth-child(1) {
+    transform: scale(0.8);
+}
+
+.carousel .banner:nth-child(2) {
+    transform: scale(1.2);
+}
+
+.carousel .banner:nth-child(3) {
+    transform: scale(0.8);
+}
+
 /* Música e controles */
 .music-player {
     background: rgba(0, 0, 0, 0.6);
