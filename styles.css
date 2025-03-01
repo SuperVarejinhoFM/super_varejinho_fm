@@ -24,10 +24,10 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    z-index: 1;
-    margin-top: 0; /* Removendo qualquer margem superior */
-    padding-top: 0; /* Removendo qualquer padding superior */
+    position: fixed; /* Torna o cabeçalho fixo no topo */
+    top: 0; /* Garante que o cabeçalho fique no topo da página */
+    left: 0; /* Alinha ao lado esquerdo */
+    z-index: 1; /* Coloca o cabeçalho acima de outros elementos */
 }
 
 #logo {
@@ -42,7 +42,7 @@ header {
     background: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 15px;
-    margin-top: 20px;
+    margin-top: 240px; /* Adicionando margem para evitar sobreposição do cabeçalho */
     width: 80%;
     max-width: 500px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
