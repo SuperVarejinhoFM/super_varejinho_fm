@@ -1,7 +1,7 @@
 /* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('./RADIO/images/BG.png'); 
+    background-image: url('./RADIO/images/BG.png');
     background-size: cover;
     background-position: center center;
     margin: 0;
@@ -18,12 +18,12 @@ body {
 
 /* Cabeçalho */
 header {
-    width: 100%; 
-    background-color: #007BFF; 
-    height: 200px; 
+    width: 100%;
+    background-color: #007BFF;
+    height: 220px;
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     position: relative;
     z-index: 1;
 }
@@ -31,20 +31,18 @@ header {
 #logo {
     width: 280px;
     height: auto;
-    max-width: 100%;
     border-radius: 0;
     border: none;
-    z-index: 2;
 }
 
-/* Tocador de Música */
+/* Música e controles */
 .music-player {
     background: rgba(0, 0, 0, 0.6);
     padding: 30px;
     border-radius: 15px;
     margin-top: 20px;
     width: 80%;
-    max-width: 400px;
+    max-width: 500px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -56,25 +54,72 @@ header {
 
 /* Barra de Progresso */
 .progress-container {
+    margin-top: 20px;
     width: 100%;
+    max-width: 350px;
+}
+
+#progressBar {
+    width: 100%;
+}
+
+/* Barra de Áudio que sobe e desce */
+.audio-bar-container {
+    position: relative;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.audio-bar {
+    width: 20px;
+    height: 20px;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    position: absolute;
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Controle de Áudio */
+.audio-controls {
     margin-top: 20px;
 }
 
-progress {
-    width: 100%;
-    height: 15px;
-    background-color: #333;
-    border-radius: 8px;
+button {
+    background-color: #007BFF;
+    color: #fff;
     border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    margin: 10px;
+    display: inline-block;
 }
 
-progress::-webkit-progress-bar {
-    background-color: #444;
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
 }
 
-progress::-webkit-progress-value {
-    background-color: #ff8c00;
-    border-radius: 8px;
+button:focus {
+    outline: none;
 }
 
 /* Rodapé */
