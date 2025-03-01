@@ -72,21 +72,17 @@ audioPlayer.addEventListener('play', function() {
         bar.style.animationPlayState = 'running'; // Iniciar animação das barras
     });
 
+    // A cada 100ms, a altura das barras será alterada aleatoriamente
     setInterval(function() {
-        const randomHeight = Math.floor(Math.random() * 60) + 30; // Altura aleatória para simular movimento
         document.querySelectorAll('.audio-bar').forEach((bar, index) => {
+            const randomHeight = Math.floor(Math.random() * 60) + 30; // Altura aleatória para simular movimento
             bar.style.height = `${randomHeight + (index * 10)}px`; // Variação para cada barra
         });
     }, 100);
 });
 
-// Quando a música for pausada, as barras param
+// Quando a música for pausada, as barras param e voltam ao estado inicial
 audioPlayer.addEventListener('pause', function() {
     document.querySelectorAll('.audio-bar').forEach(bar => {
         bar.style.animationPlayState = 'paused'; // Parar animação das barras
-    });
-});
-
-// Iniciar o primeiro áudio
-audioPlayer.src = audios[currentAudioIndex];
-audioPlayer.play();
+        bar.style.height = '60px';
