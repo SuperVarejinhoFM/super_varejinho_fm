@@ -89,20 +89,22 @@ let currentIndex = 0;
 const banners = document.querySelectorAll('.carousel .banner');
 const carousel = document.querySelector('.carousel');
 
-// Função para mover o carrossel automaticamente
+// Função para mover o carrossel
 function moveCarousel() {
     // Incrementa o índice e faz a rotação dos banners
     currentIndex = (currentIndex + 1) % banners.length;
 
-    // Aplica a transformação de transição para os banners (move o carrossel)
-    carousel.style.transform = `translateX(-${currentIndex * 380}px)`; // Ajuste da posição com base na largura
+    // Aplica a transformação de transição para os banners
+    carousel.style.transform = `translateX(-${currentIndex * (350 + 30)}px)`; // 350px é a largura do banner, 30px é o espaço entre eles
 
-    // Aplique o efeito de zoom de forma dinâmica
+    // Aplica o efeito de zoom de forma dinâmica
     banners.forEach((banner, index) => {
         if (index === currentIndex) {
             banner.style.transform = 'scale(1.2)';
+            banner.style.zIndex = '2';  // Garante que o banner central esteja no topo
         } else {
             banner.style.transform = 'scale(0.8)';
+            banner.style.zIndex = '1';  // Outros banners ficam em segundo plano
         }
     });
 }
@@ -111,4 +113,5 @@ function moveCarousel() {
 setInterval(moveCarousel, 3000);
 
 // Inicia o carrossel
-moveCarousel(); // Chama a função para inicializar o primeiro movimento
+moveCarousel();  // Chama a função para inicializar o primeiro movimento
+
