@@ -19,7 +19,7 @@ body {
 /* Cabeçalho */
 header {
     width: 100%;
-    background-color: #001D63; /* Cor alterada */
+    background-color: #001D63;
     height: 220px;
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@ header {
 }
 
 #logo {
-    width: 250px; /* Tamanho da logo aumentado */
+    width: 250px;
     height: auto;
     border-radius: 0;
     border: none;
@@ -64,12 +64,12 @@ header {
 }
 
 .audio-bar {
-    width: 15px; /* Largura das barras */
-    height: 60px; /* Altura inicial das barras */
+    width: 15px;
+    height: 60px;
     margin: 0 5px;
-    background: linear-gradient(180deg, #001D63, #29C43C); /* Degradê entre as cores */
+    background: linear-gradient(180deg, #001D63, #29C43C);
     border-radius: 5px;
-    animation: bounce 0.5s ease-in-out infinite paused; /* Animação parada por padrão */
+    animation: bounce 0.5s ease-in-out infinite paused;
     transition: height 0.1s ease-in-out;
 }
 
@@ -84,16 +84,6 @@ header {
     100% {
         transform: translateY(0);
     }
-}
-
-/* Controle de Áudio */
-.audio-controls {
-    display: none; /* Ocultar os controles */
-}
-
-/* Barra de Progresso removida */
-.progress-container {
-    display: none; /* Ocultar a barra de progresso */
 }
 
 /* Rodapé */
