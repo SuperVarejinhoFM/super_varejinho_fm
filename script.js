@@ -89,25 +89,26 @@ let currentIndex = 0;
 const banners = document.querySelectorAll('.carousel .banner');
 const carousel = document.querySelector('.carousel');
 
-// Função para mover o carrossel
+// Função para mover o carrossel automaticamente
 function moveCarousel() {
-    // Remover a classe 'active' de todos os banners
-    banners.forEach(banner => {
-        banner.classList.remove('active');
-    });
-
     // Incrementa o índice e faz a rotação dos banners
     currentIndex = (currentIndex + 1) % banners.length;
 
-    // Adiciona a classe 'active' ao banner que deve estar em destaque
-    banners[currentIndex].classList.add('active');
+    // Aplica a transformação de transição para os banners (move o carrossel)
+    carousel.style.transform = `translateX(-${currentIndex * 380}px)`; // Ajuste da posição com base na largura
 
-    // Aplica a transformação de transição para os banners (faz o carrossel se mover)
-    carousel.style.transform = `translateX(-${(currentIndex * 420)}px)`; // 420px é a largura do banner + a margem
+    // Aplique o efeito de zoom de forma dinâmica
+    banners.forEach((banner, index) => {
+        if (index === currentIndex) {
+            banner.style.transform = 'scale(1.2)';
+        } else {
+            banner.style.transform = 'scale(0.8)';
+        }
+    });
 }
 
 // Inicia o movimento automático do carrossel a cada 3 segundos
 setInterval(moveCarousel, 3000);
 
-// Inicializa o primeiro banner como ativo
-banners[currentIndex].classList.add('active');
+// Inicia o carrossel
+moveCarousel(); // Chama a função para inicializar o primeiro movimento
