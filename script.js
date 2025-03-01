@@ -42,11 +42,6 @@ const audios = [
 
 let currentAudioIndex = 0;
 const audioPlayer = document.getElementById('audioPlayer');
-const playButton = document.getElementById('playBtn');
-const prevButton = document.getElementById('prevBtn');
-const nextButton = document.getElementById('nextBtn');
-const progressBar = document.getElementById('progressBar');
-const audioBar = document.getElementById('audioBar');
 
 // Função para carregar a próxima música
 function loadNextAudio() {
@@ -66,42 +61,21 @@ function loadPrevAudio() {
 function togglePlayPause() {
     if (audioPlayer.paused) {
         audioPlayer.play();
-        playButton.textContent = 'Pause';
     } else {
         audioPlayer.pause();
-        playButton.textContent = 'Play';
     }
 }
 
-// Evento para o botão de "Play/Pause"
-playButton.addEventListener('click', togglePlayPause);
-
-// Evento para o botão "Próxima"
-nextButton.addEventListener('click', loadNextAudio);
-
-// Evento para o botão "Anterior"
-prevButton.addEventListener('click', loadPrevAudio);
-
-// Atualizar a barra de progresso conforme a música vai tocando
-audioPlayer.addEventListener('timeupdate', function() {
-    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    progressBar.value = progress;
-});
-
-// Função para reiniciar a música ao terminar
-audioPlayer.addEventListener('ended', function() {
-    audioPlayer.currentTime = 0;
-    audioPlayer.play(); // Reinicia a música ao terminar
-});
-
-// Animar a barra de áudio (subir e descer) com base na batida
+// Atualizar a animação das barras com base no áudio
 audioPlayer.addEventListener('play', function() {
     setInterval(function() {
-        const randomHeight = Math.random() * 30 + 10; // altura aleatória entre 10px e 40px
-        audioBar.style.height = `${randomHeight}px`;
-    }, 200);
+        const randomHeight = Math.floor(Math.random() * 60) + 30; // Altura aleatória para simular movimento
+        document.querySelectorAll('.audio-bar').forEach((bar, index) => {
+            bar.style.height = `${randomHeight + (index * 10)}px`; // Variação para cada barra
+        });
+    }, 100);
 });
 
-// Inicia o primeiro áudio
+// Iniciar o primeiro áudio
 audioPlayer.src = audios[currentAudioIndex];
 audioPlayer.play();
