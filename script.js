@@ -91,13 +91,23 @@ const carousel = document.querySelector('.carousel');
 
 // Função para mover o carrossel
 function moveCarousel() {
+    // Remover a classe 'active' de todos os banners
+    banners.forEach(banner => {
+        banner.classList.remove('active');
+    });
+
     // Incrementa o índice e faz a rotação dos banners
     currentIndex = (currentIndex + 1) % banners.length;
-    
-    // Aplica a transformação de transição para os banners
-    carousel.style.transform = `translateX(-${(currentIndex * 380)}px)`; // 380px é a largura do banner + a margem
+
+    // Adiciona a classe 'active' ao banner que deve estar em destaque
+    banners[currentIndex].classList.add('active');
+
+    // Aplica a transformação de transição para os banners (faz o carrossel se mover)
+    carousel.style.transform = `translateX(-${(currentIndex * 420)}px)`; // 420px é a largura do banner + a margem
 }
 
 // Inicia o movimento automático do carrossel a cada 3 segundos
 setInterval(moveCarousel, 3000);
 
+// Inicializa o primeiro banner como ativo
+banners[currentIndex].classList.add('active');
