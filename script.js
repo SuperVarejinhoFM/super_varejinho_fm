@@ -65,4 +65,34 @@ function loadPrevAudio() {
 function togglePlayPause() {
     if (audioPlayer.paused) {
         audioPlayer.play();
-        playButton.textContent = 'Pause
+        playButton.textContent = 'Pause';
+    } else {
+        audioPlayer.pause();
+        playButton.textContent = 'Play';
+    }
+}
+
+// Evento para o botão de "Play/Pause"
+playButton.addEventListener('click', togglePlayPause);
+
+// Evento para o botão "Próxima"
+nextButton.addEventListener('click', loadNextAudio);
+
+// Evento para o botão "Anterior"
+prevButton.addEventListener('click', loadPrevAudio);
+
+// Atualizar a barra de progresso conforme a música vai tocando
+audioPlayer.addEventListener('timeupdate', function() {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.value = progress;
+});
+
+// Função para reiniciar a música ao terminar
+audioPlayer.addEventListener('ended', function() {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play(); // Reinicia a música ao terminar
+});
+
+// Inicia o primeiro áudio
+audioPlayer.src = audios[currentAudioIndex];
+audioPlayer.play();
