@@ -58,6 +58,7 @@ header {
     transition: transform 0.5s ease-in-out;
 }
 
+/* Aumentar/Diminuir a escala do banner ativo */
 .carousel .banner:nth-child(1) {
     transform: scale(0.8); 
 }
