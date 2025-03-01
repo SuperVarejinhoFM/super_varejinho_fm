@@ -1,48 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="styles.css"> <!-- Caminho para o CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- Cabeçalho -->
-<header>
-    <img id="logo" src="RADIO/images/logo.png" alt="Super Varejinho FM Logo"> <!-- Caminho para o logo -->
-</header>
-
-   <!-- Carrossel de Banners -->
-<div class="carousel">
-    <div class="banner">
-        <img src="RADIO/images/banner1.png" alt="Banner 1">
-    </div>
-    <div class="banner">
-        <img src="RADIO/images/banner2.png" alt="Banner 2">
-    </div>
-    <div class="banner">
-        <img src="RADIO/images/banner3.png" alt="Banner 3">
-    </div>
-    <!-- Adicione mais banners conforme necessário -->
-</div>
+    <!-- Cabeçalho -->
+    <header>
+        <div id="logo-container">
+            <img src="logo.png" id="logo" alt="Logo">
+        </div>
+    </header>
 
     <!-- Tocador de Música -->
     <div class="music-player">
-        <h2>Tocando Agora: Super Varejinho FM</h2>
+        <h2>Reproduzindo agora:</h2>
         <audio id="audioPlayer" controls>
-            <source src="RADIO/audio/audio1.mp3" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
+            <source src="RADIO/audio/audio1.mp3" type="audio/mp3">
         </audio>
+        <div class="progress-container">
+            <progress id="progressBar" value="0" max="100"></progress>
+        </div>
     </div>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2025 Super Varejinho FM. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Super Varejinho FM</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
