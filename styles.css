@@ -107,17 +107,6 @@ button:focus {
     height: 8px;
 }
 
-#volumeControl::-webkit-slider-thumb {
-    background: #ff8c00;
-    border-radius: 50%;
-    border: none;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    /* Centraliza verticalmente a bolinha */
-    margin-top: -1.8px; /* Ajuste de alinhamento vertical */
-}
-
 /* Rodapé */
 footer {
     position: fixed;
