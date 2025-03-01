@@ -18,8 +18,14 @@ body {
 
 /* Cabeçalho */
 header {
-    margin: 20px 0;
-    border-bottom: 5px solid #007BFF; /* Adiciona a borda azul no cabeçalho */
+    width: 100%; /* O cabeçalho ocupa a largura total da página */
+    background-color: #007BFF; /* Faixa azul */
+    height: 200px; /* Aumenta a altura da faixa azul */
+    display: flex;
+    justify-content: center; /* Centraliza a logo horizontalmente */
+    align-items: center; /* Centraliza a logo verticalmente */
+    position: relative;
+    z-index: 1; /* A faixa azul ficará atrás da logo */
 }
 
 #logo {
@@ -28,6 +34,7 @@ header {
     max-width: 100%;
     border-radius: 0; /* Retira a borda arredondada da logo */
     border: none; /* Remove qualquer borda da logo */
+    z-index: 2; /* A logo fica acima da faixa azul */
 }
 
 h1 {
@@ -39,7 +46,7 @@ h1 {
 /* Carrossel de Banners */
 .carousel-container {
     width: 80%;
-    max-width: 1200px; /* Aumenta o tamanho do carrossel */
+    max-width: 1200px; 
     overflow: hidden;
     margin: 30px 0;
 }
@@ -50,23 +57,23 @@ h1 {
 }
 
 .banner {
-    width: 350px; /* Aumenta o tamanho dos banners */
+    width: 350px; 
     height: auto;
-    border-radius: 15px; /* Arredonda um pouco as bordas dos banners */
+    border-radius: 15px; 
     margin: 0 15px;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel .banner:nth-child(1) {
-    transform: scale(0.8); /* Banner esquerdo encolhido */
+    transform: scale(0.8); 
 }
 
 .carousel .banner:nth-child(2) {
-    transform: scale(1.2); /* Banner central aumentado */
+    transform: scale(1.2); 
 }
 
 .carousel .banner:nth-child(3) {
-    transform: scale(0.8); /* Banner direito encolhido */
+    transform: scale(0.8); 
 }
 
 /* Tocador de Música */
