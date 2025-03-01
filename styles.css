@@ -20,18 +20,17 @@ body {
 header {
     width: 100%;
     background-color: #001D63; /* Cor da faixa azul */
-    height: 160px; /* Reduzindo altura para ficar mais próximo do topo */
+    height: 220px; /* Tamanho do cabeçalho */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
-    margin-top: 0; /* Remover qualquer margem que afaste do topo */
-    padding-top: 10px; /* Ajuste de padding para deixar a logo mais próxima do topo */
+    margin-top: -30px; /* Movendo o cabeçalho para cima */
 }
 
 #logo {
-    width: 220px; /* Tamanho da logo ajustado */
+    width: 220px; /* Ajustando o tamanho da logo */
     height: auto;
     border-radius: 0;
     border: none;
