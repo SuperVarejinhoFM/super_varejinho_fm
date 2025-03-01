@@ -46,7 +46,6 @@ const playButton = document.getElementById('playBtn');
 const prevButton = document.getElementById('prevBtn');
 const nextButton = document.getElementById('nextBtn');
 const progressBar = document.getElementById('progressBar');
-const audioBar = document.getElementById('audioBar');
 
 // Função para carregar a próxima música
 function loadNextAudio() {
@@ -66,40 +65,4 @@ function loadPrevAudio() {
 function togglePlayPause() {
     if (audioPlayer.paused) {
         audioPlayer.play();
-        playButton.textContent = 'Pause';
-    } else {
-        audioPlayer.pause();
-        playButton.textContent = 'Play';
-    }
-}
-
-// Evento para o botão de "Play/Pause"
-playButton.addEventListener('click', togglePlayPause);
-
-// Evento para o botão "Próxima"
-nextButton.addEventListener('click', loadNextAudio);
-
-// Evento para o botão "Anterior"
-prevButton.addEventListener('click', loadPrevAudio);
-
-// Atualizar a barra de progresso conforme a música vai tocando
-audioPlayer.addEventListener('timeupdate', function() {
-    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    progressBar.value = progress;
-});
-
-// Função para reiniciar a música ao terminar
-audioPlayer.addEventListener('ended', function() {
-    audioPlayer.currentTime = 0;
-    audioPlayer.play(); // Reinicia a música ao terminar
-});
-
-// Barra de áudio que sobe e desce
-audioPlayer.addEventListener('timeupdate', function() {
-    const volume = Math.sin(audioPlayer.currentTime) * 10; // Usando a batida para fazer a barra se mover
-    audioBar.style.transform = `translateY(${volume}px)`; // Move a barra para cima e para baixo
-});
-
-// Inicia o primeiro áudio
-audioPlayer.src = audios[currentAudioIndex];
-audioPlayer.play();
+        playButton.textContent = 'Pause
