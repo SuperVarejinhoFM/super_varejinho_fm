@@ -40,39 +40,22 @@ const audios = [
     'RADIO/audio/audio38.mp3'
 ];
 
-let currentAudioIndex = 0;
+// Selecionar um áudio aleatório
+function getRandomAudio() {
+    const randomIndex = Math.floor(Math.random() * audios.length);
+    return audios[randomIndex];
+}
+
 const audioPlayer = document.getElementById('audioPlayer');
 
-// Função para carregar a próxima música
-function loadNextAudio() {
-    currentAudioIndex = (currentAudioIndex + 1) % audios.length;
-    audioPlayer.src = audios[currentAudioIndex];
-    audioPlayer.play();
-}
-
-// Função para carregar a música anterior
-function loadPrevAudio() {
-    currentAudioIndex = (currentAudioIndex - 1 + audios.length) % audios.length;
-    audioPlayer.src = audios[currentAudioIndex];
-    audioPlayer.play();
-}
-
-// Função de play/pause
-function togglePlayPause() {
-    if (audioPlayer.paused) {
-        audioPlayer.play();
-    } else {
-        audioPlayer.pause();
-    }
-}
-
-// Iniciar o primeiro áudio automaticamente ao carregar
+// Função para iniciar o áudio automaticamente ao carregar a página
 window.onload = function() {
-    audioPlayer.src = audios[currentAudioIndex]; // Carregar o primeiro áudio
-    audioPlayer.load(); // Carregar o arquivo no player
+    audioPlayer.src = getRandomAudio(); // Carregar um áudio aleatório
+    audioPlayer.play(); // Iniciar a reprodução
+    audioPlayer.loop = true; // Repetir o áudio até que seja trocado manualmente ou programaticamente
 };
 
-// Função para atualizar as barras enquanto a música toca
+// Atualização das barras enquanto a música toca
 audioPlayer.addEventListener('play', function() {
     document.querySelectorAll('.audio-bar').forEach(bar => {
         bar.style.animationPlayState = 'running'; // Iniciar animação das barras
