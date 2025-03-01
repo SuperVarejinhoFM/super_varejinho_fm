@@ -97,4 +97,11 @@ audioPlayer.addEventListener('ended', function() {
 // Animar a barra de áudio (subir e descer) com base na batida
 audioPlayer.addEventListener('play', function() {
     setInterval(function() {
-        const randomHeight = Math
+        const randomHeight = Math.random() * 30 + 10; // altura aleatória entre 10px e 40px
+        audioBar.style.height = `${randomHeight}px`;
+    }, 200);
+});
+
+// Inicia o primeiro áudio
+audioPlayer.src = audios[currentAudioIndex];
+audioPlayer.play();
