@@ -40,46 +40,43 @@ const audios = [
     'RADIO/audio/audio38.mp3'
 ];
 
-// Seleciona uma música aleatória
-function getRandomAudio() {
-    const randomIndex = Math.floor(Math.random() * audios.length);
-    return audios[randomIndex];
+let currentAudioIndex = 0;
+const audioPlayer = document.getElementById('audioPlayer');
+const progressBar = document.getElementById('progressBar');
+
+// Função para carregar a próxima música aleatória
+function loadNextAudio() {
+    currentAudioIndex = Math.floor(Math.random() * audios.length); // Escolhe um índice aleatório
+    audioPlayer.src = audios[currentAudioIndex];
+    audioPlayer.play();
 }
 
-const audioPlayer = document.getElementById('audioPlayer');
-
-// Função para iniciar o áudio automaticamente ao carregar a página
-window.onload = function() {
-    audioPlayer.src = getRandomAudio(); // Carregar um áudio aleatório
-    audioPlayer.play(); // Iniciar a reprodução
-    audioPlayer.loop = false; // Não repetir a música automaticamente
-};
-
-// Atualização das barras enquanto a música toca
-audioPlayer.addEventListener('play', function() {
-    document.querySelectorAll('.audio-bar-top').forEach(bar => {
-        bar.style.animationPlayState = 'running'; // Iniciar animação das barras
-    });
-
-    // A cada 100ms, a altura das barras será alterada aleatoriamente
-    setInterval(function() {
-        document.querySelectorAll('.audio-bar-top').forEach((bar, index) => {
-            const randomHeight = Math.floor(Math.random() * 60) + 30; // Altura aleatória para simular movimento
-            bar.style.height = `${randomHeight + (index * 10)}px`; // Variação para cada barra
-        });
-    }, 100);
+// Atualizar a barra de progresso conforme a música vai tocando
+audioPlayer.addEventListener('timeupdate', function() {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.value = progress;
 });
 
-// Quando a música for pausada, as barras param e voltam ao estado inicial
-audioPlayer.addEventListener('pause', function() {
-    document.querySelectorAll('.audio-bar-top').forEach(bar => {
-        bar.style.animationPlayState = 'paused'; // Parar animação das barras
-        bar.style.height = '60px'; // Voltar ao tamanho inicial
-    });
-});
-
-// Quando a música terminar, carrega uma nova música aleatória
+// Função para reiniciar a música ao terminar
 audioPlayer.addEventListener('ended', function() {
-    audioPlayer.src = getRandomAudio(); // Carregar um áudio aleatório
-    audioPlayer.play(); // Reproduzir a nova música
+    loadNextAudio(); // Vai para a próxima música automaticamente
 });
+
+// Função para quando a música começar a tocar
+audioPlayer.addEventListener('play', function() {
+    document.querySelectorAll('.audio-bar').forEach(bar => {
+        bar.classList.add('bounce'); // Ativa a animação quando a música toca
+    });
+});
+
+// Função para quando a música pausar
+audioPlayer.addEventListener('pause', function() {
+    document.querySelectorAll('.audio-bar').forEach(bar => {
+        bar.classList.remove('bounce'); // Remove a animação quando a música é pausada
+    });
+});
+
+// Inicia a música aleatória ao carregar a página
+window.onload = () => {
+    loadNextAudio(); // Começa com a música aleatória ao carregar
+};
