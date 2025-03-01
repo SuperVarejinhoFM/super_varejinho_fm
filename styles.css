@@ -22,11 +22,11 @@ header {
 }
 
 #logo {
-    width: 150px; /* Logo menor */
+    width: 250px; /* Logo menor */
     height: auto;
     max-width: 100%;
     border-radius: 50%; /* Logo arredondado */
-    border: 50px solid #fff; /* Borda branca no logo */
+    border: 5px solid #fff; /* Borda branca no logo */
 }
 
 h1 {
