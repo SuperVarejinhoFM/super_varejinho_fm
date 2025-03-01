@@ -106,3 +106,84 @@ footer {
 footer p {
     margin: 0;
 }
+
+/* Design Responsivo */
+
+/* Ajuste para telas pequenas (celulares) */
+@media (max-width: 600px) {
+    header {
+        height: 180px; /* Reduz a altura do cabeçalho em telas pequenas */
+    }
+
+    #logo {
+        width: 180px; /* Reduz o tamanho da logo em telas pequenas */
+    }
+
+    .music-player {
+        width: 90%;
+        max-width: 90%; /* Aumenta o tamanho da música player */
+        margin-top: 200px; /* Ajuste o espaço acima para evitar sobreposição */
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px; /* Ajusta o tamanho dos botões */
+    }
+
+    footer {
+        padding: 10px 0;
+        font-size: 0.9rem; /* Ajusta o tamanho da fonte no rodapé */
+    }
+}
+
+/* Ajuste para telas médias (tablets) */
+@media (max-width: 1024px) {
+    header {
+        height: 200px; /* Cabeçalho com altura média para tablets */
+    }
+
+    #logo {
+        width: 200px; /* Logo ajustada para tablets */
+    }
+
+    .music-player {
+        width: 85%;
+        max-width: 85%; /* Ajuste o tamanho do player */
+        margin-top: 220px; /* Ajuste o espaço acima para tablets */
+    }
+
+    button {
+        padding: 11px 22px;
+        font-size: 17px;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+}
+
+/* Ajuste para telas grandes (desktops) */
+@media (min-width: 1025px) {
+    header {
+        height: 220px; /* Tamanho padrão do cabeçalho para desktops */
+    }
+
+    #logo {
+        width: 220px; /* Logo em tamanho padrão */
+    }
+
+    .music-player {
+        width: 70%;
+        max-width: 500px; /* Mantém o tamanho máximo do player */
+        margin-top: 240px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+    }
+
+    footer {
+        font-size: 1rem;
+    }
+}
