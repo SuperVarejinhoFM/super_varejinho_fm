@@ -42,6 +42,9 @@ const audios = [
 
 let currentAudioIndex = 0;
 const audioPlayer = document.getElementById('audioPlayer');
+const playButton = document.getElementById('playBtn');
+const prevButton = document.getElementById('prevBtn');
+const nextButton = document.getElementById('nextBtn');
 
 // Função para carregar a próxima música
 function loadNextAudio() {
@@ -50,9 +53,50 @@ function loadNextAudio() {
     audioPlayer.play();
 }
 
-// Evento para avançar automaticamente quando a música terminar
-audioPlayer.addEventListener('ended', loadNextAudio);
+// Função para carregar a música anterior
+function loadPrevAudio() {
+    currentAudioIndex = (currentAudioIndex - 1 + audios.length) % audios.length;
+    audioPlayer.src = audios[currentAudioIndex];
+    audioPlayer.play();
+}
+
+// Função de play/pause
+function togglePlayPause() {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playButton.textContent = 'Pause';
+    } else {
+        audioPlayer.pause();
+        playButton.textContent = 'Play';
+    }
+}
+
+// Evento para o botão de "Play/Pause"
+playButton.addEventListener('click', togglePlayPause);
+
+// Evento para o botão "Próxima"
+nextButton.addEventListener('click', loadNextAudio);
+
+// Evento para o botão "Anterior"
+prevButton.addEventListener('click', loadPrevAudio);
 
 // Inicia o primeiro áudio
 audioPlayer.src = audios[currentAudioIndex];
 audioPlayer.play();
+
+// Carrossel de Banners
+let currentIndex = 0;
+const banners = document.querySelectorAll('.carousel .banner');
+const carousel = document.querySelector('.carousel');
+
+// Função para mover o carrossel
+function moveCarousel() {
+    // Incrementa o índice e faz a rotação dos banners
+    currentIndex = (currentIndex + 1) % banners.length;
+    
+    // Aplica a transformação de transição para os banners
+    carousel.style.transform = `translateX(-${(currentIndex * 320)}px)`; // 320px é a largura do banner + a margem
+}
+
+// Inicia o movimento automático do carrossel a cada 3 segundos
+setInterval(moveCarousel, 3000);
