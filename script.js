@@ -46,6 +46,7 @@ const playButton = document.getElementById('playBtn');
 const prevButton = document.getElementById('prevBtn');
 const nextButton = document.getElementById('nextBtn');
 const progressBar = document.getElementById('progressBar');
+const audioBar = document.getElementById('audioBar');
 
 // Função para carregar a próxima música
 function loadNextAudio() {
@@ -93,6 +94,7 @@ audioPlayer.addEventListener('ended', function() {
     audioPlayer.play(); // Reinicia a música ao terminar
 });
 
-// Inicia o primeiro áudio
-audioPlayer.src = audios[currentAudioIndex];
-audioPlayer.play();
+// Animar a barra de áudio (subir e descer) com base na batida
+audioPlayer.addEventListener('play', function() {
+    setInterval(function() {
+        const randomHeight = Math
