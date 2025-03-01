@@ -16,7 +16,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Cabeçalho - Movendo para cima */
+/* Cabeçalho - Movendo para o topo */
 header {
     width: 100%;
     background-color: #001D63; /* Cor da faixa azul */
@@ -26,7 +26,8 @@ header {
     align-items: center;
     position: relative;
     z-index: 1;
-    margin-top: -30px; /* Movendo o cabeçalho para cima */
+    margin-top: 0; /* Removendo qualquer margem superior */
+    padding-top: 0; /* Removendo qualquer padding superior */
 }
 
 #logo {
@@ -47,6 +48,11 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Ocultando as barras de áudio */
+.audio-bar-container {
+    display: none; /* Escondendo as barras de áudio */
+}
+
 /* Barra de Progresso */
 .progress-container {
     margin-top: 20px;
@@ -56,38 +62,6 @@ header {
 
 #progressBar {
     width: 100%;
-}
-
-/* Barra de Áudio que sobe e desce */
-.audio-bar-container {
-    position: relative;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-}
-
-.audio-bar {
-    width: 20px;
-    height: 20px;
-    background-color: #ff8c00;
-    border-radius: 50%;
-    position: absolute;
-    animation: bounce 0.5s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0);
-    }
 }
 
 /* Controle de Áudio */
