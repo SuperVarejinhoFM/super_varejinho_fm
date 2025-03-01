@@ -45,6 +45,7 @@ const audioPlayer = document.getElementById('audioPlayer');
 const playButton = document.getElementById('playBtn');
 const prevButton = document.getElementById('prevBtn');
 const nextButton = document.getElementById('nextBtn');
+const progressBar = document.getElementById('progressBar');
 
 // Função para carregar a próxima música
 function loadNextAudio() {
@@ -80,38 +81,21 @@ nextButton.addEventListener('click', loadNextAudio);
 // Evento para o botão "Anterior"
 prevButton.addEventListener('click', loadPrevAudio);
 
+// Atualizar a barra de progresso conforme a música vai tocando
+audioPlayer.addEventListener('timeupdate', function() {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.value = progress;
+});
+
+// Função para reiniciar a música ao terminar
+audioPlayer.addEventListener('ended', function() {
+    audioPlayer.currentTime = 0;
+    audioPlayer.play(); // Reinicia a música ao terminar
+});
+
 // Inicia o primeiro áudio
 audioPlayer.src = audios[currentAudioIndex];
 audioPlayer.play();
 
-// Carrossel de Banners
-let currentIndex = 0;
-const banners = document.querySelectorAll('.carousel .banner');
-const carousel = document.querySelector('.carousel');
-
-// Função para mover o carrossel
-function moveCarousel() {
-    // Incrementa o índice e faz a rotação dos banners
-    currentIndex = (currentIndex + 1) % banners.length;
-
-    // Aplica a transformação de transição para os banners
-    carousel.style.transform = `translateX(-${currentIndex * (350 + 30)}px)`; // 350px é a largura do banner, 30px é o espaço entre eles
-
-    // Aplica o efeito de zoom de forma dinâmica
-    banners.forEach((banner, index) => {
-        if (index === currentIndex) {
-            banner.style.transform = 'scale(1.2)';
-            banner.style.zIndex = '2';  // Garante que o banner central esteja no topo
-        } else {
-            banner.style.transform = 'scale(0.8)';
-            banner.style.zIndex = '1';  // Outros banners ficam em segundo plano
-        }
-    });
-}
-
-// Inicia o movimento automático do carrossel a cada 3 segundos
-setInterval(moveCarousel, 3000);
-
-// Inicia o carrossel
-moveCarousel();  // Chama a função para inicializar o primeiro movimento
-
+// Carrossel de Banners - Removido conforme pedido
+// Não haverá mais banners ou carrossel
