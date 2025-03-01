@@ -43,34 +43,13 @@ const audios = [
 let currentAudioIndex = 0;
 const audioPlayer = document.getElementById('audioPlayer');
 const progressBar = document.getElementById('progressBar');
-const audioBars = document.querySelectorAll('.audio-bar'); // Selecione todas as barras de áudio
 
-// Função para carregar e tocar um áudio aleatório
-function playRandomAudio() {
-    currentAudioIndex = Math.floor(Math.random() * audios.length); // Escolhe um áudio aleatório
+// Função para carregar a próxima música aleatória
+function loadNextAudio() {
+    currentAudioIndex = Math.floor(Math.random() * audios.length); // Escolhe um índice aleatório
     audioPlayer.src = audios[currentAudioIndex];
     audioPlayer.play();
-    startBarsAnimation(); // Inicia a animação das barras
 }
-
-// Função para iniciar a animação das barras
-function startBarsAnimation() {
-    audioBars.forEach(bar => {
-        bar.classList.add('bounce'); // Começa a animação das barras
-    });
-}
-
-// Função para parar a animação das barras
-function stopBarsAnimation() {
-    audioBars.forEach(bar => {
-        bar.classList.remove('bounce'); // Remove a animação das barras
-    });
-}
-
-// Evento para o botão de "Play" quando a página carrega
-window.onload = function() {
-    playRandomAudio();
-};
 
 // Atualizar a barra de progresso conforme a música vai tocando
 audioPlayer.addEventListener('timeupdate', function() {
@@ -78,16 +57,26 @@ audioPlayer.addEventListener('timeupdate', function() {
     progressBar.value = progress;
 });
 
-// Ao terminar o áudio, escolhe um novo áudio aleatório
+// Função para reiniciar a música ao terminar
 audioPlayer.addEventListener('ended', function() {
-    playRandomAudio();
+    loadNextAudio(); // Vai para a próxima música automaticamente
 });
 
-// Pausa a música e para a animação
+// Função para quando a música começar a tocar
+audioPlayer.addEventListener('play', function() {
+    document.querySelectorAll('.audio-bar').forEach(bar => {
+        bar.classList.add('bounce'); // Ativa a animação quando a música toca
+    });
+});
+
+// Função para quando a música pausar
 audioPlayer.addEventListener('pause', function() {
-    stopBarsAnimation();
+    document.querySelectorAll('.audio-bar').forEach(bar => {
+        bar.classList.remove('bounce'); // Remove a animação quando a música é pausada
+    });
 });
 
-// Inicia o primeiro áudio ao carregar a página
-audioPlayer.src = audios[currentAudioIndex];
-audioPlayer.play();
+// Inicia a música aleatória ao carregar a página
+window.onload = () => {
+    loadNextAudio(); // Começa com a música aleatória ao carregar
+};
