@@ -46,6 +46,7 @@ const playButton = document.getElementById('playBtn');
 const prevButton = document.getElementById('prevBtn');
 const nextButton = document.getElementById('nextBtn');
 const progressBar = document.getElementById('progressBar');
+const audioBar = document.getElementById('audioBar');
 
 // Função para carregar a próxima música
 function loadNextAudio() {
@@ -93,9 +94,12 @@ audioPlayer.addEventListener('ended', function() {
     audioPlayer.play(); // Reinicia a música ao terminar
 });
 
+// Barra de áudio que sobe e desce
+audioPlayer.addEventListener('timeupdate', function() {
+    const volume = Math.sin(audioPlayer.currentTime) * 10; // Usando a batida para fazer a barra se mover
+    audioBar.style.transform = `translateY(${volume}px)`; // Move a barra para cima e para baixo
+});
+
 // Inicia o primeiro áudio
 audioPlayer.src = audios[currentAudioIndex];
 audioPlayer.play();
-
-// Carrossel de Banners - Removido conforme pedido
-// Não haverá mais banners ou carrossel
