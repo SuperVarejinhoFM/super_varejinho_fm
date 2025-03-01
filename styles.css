@@ -99,6 +99,7 @@ button:focus {
     background-color: #fff;
     height: 8px;
     appearance: none;
+    position: relative;
 }
 
 #volumeControl::-webkit-slider-runnable-track {
@@ -113,6 +114,8 @@ button:focus {
     width: 20px;
     height: 20px;
     cursor: pointer;
+    /* Centraliza verticalmente a bolinha */
+    margin-top: -6px; /* Ajuste de alinhamento vertical */
 }
 
 /* Rodapé */
