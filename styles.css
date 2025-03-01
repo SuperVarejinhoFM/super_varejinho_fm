@@ -115,7 +115,7 @@ button:focus {
     height: 20px;
     cursor: pointer;
     /* Centraliza verticalmente a bolinha */
-    margin-top: -6px; /* Ajuste de alinhamento vertical */
+    margin-top: -1px; /* Ajuste de alinhamento vertical */
 }
 
 /* Rodapé */
