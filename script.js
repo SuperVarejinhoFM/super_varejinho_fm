@@ -66,6 +66,12 @@ function togglePlayPause() {
     }
 }
 
+// Iniciar o primeiro áudio automaticamente ao carregar
+window.onload = function() {
+    audioPlayer.src = audios[currentAudioIndex]; // Carregar o primeiro áudio
+    audioPlayer.load(); // Carregar o arquivo no player
+};
+
 // Função para atualizar as barras enquanto a música toca
 audioPlayer.addEventListener('play', function() {
     document.querySelectorAll('.audio-bar').forEach(bar => {
@@ -85,4 +91,6 @@ audioPlayer.addEventListener('play', function() {
 audioPlayer.addEventListener('pause', function() {
     document.querySelectorAll('.audio-bar').forEach(bar => {
         bar.style.animationPlayState = 'paused'; // Parar animação das barras
-        bar.style.height = '60px';
+        bar.style.height = '60px'; // Voltar ao tamanho inicial
+    });
+});
