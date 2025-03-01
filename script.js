@@ -42,9 +42,6 @@ const audios = [
 
 let currentAudioIndex = 0;
 const audioPlayer = document.getElementById('audioPlayer');
-const playButton = document.getElementById('playBtn');
-const prevButton = document.getElementById('prevBtn');
-const nextButton = document.getElementById('nextBtn');
 
 // Função para carregar a próxima música
 function loadNextAudio() {
@@ -52,33 +49,6 @@ function loadNextAudio() {
     audioPlayer.src = audios[currentAudioIndex];
     audioPlayer.play();
 }
-
-// Função para carregar a música anterior
-function loadPrevAudio() {
-    currentAudioIndex = (currentAudioIndex - 1 + audios.length) % audios.length;
-    audioPlayer.src = audios[currentAudioIndex];
-    audioPlayer.play();
-}
-
-// Função de play/pause
-function togglePlayPause() {
-    if (audioPlayer.paused) {
-        audioPlayer.play();
-        playButton.textContent = 'Pause';
-    } else {
-        audioPlayer.pause();
-        playButton.textContent = 'Play';
-    }
-}
-
-// Evento para o botão de "Play/Pause"
-playButton.addEventListener('click', togglePlayPause);
-
-// Evento para o botão "Próxima"
-nextButton.addEventListener('click', loadNextAudio);
-
-// Evento para o botão "Anterior"
-prevButton.addEventListener('click', loadPrevAudio);
 
 // Evento para avançar automaticamente quando a música terminar
 audioPlayer.addEventListener('ended', loadNextAudio);
