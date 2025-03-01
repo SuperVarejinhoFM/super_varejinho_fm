@@ -1,9 +1,9 @@
 /* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('./RADIO/images/BG.png'); /* Caminho para a imagem de fundo */
-    background-size: cover; /* Faz a imagem cobrir toda a tela */
-    background-position: center center; /* Centraliza a imagem */
+    background-image: url('./RADIO/images/BG.png'); 
+    background-size: cover;
+    background-position: center center;
     margin: 0;
     padding: 0;
     color: #fff;
@@ -13,7 +13,7 @@ body {
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    background-attachment: fixed; /* Deixa a imagem de fundo fixa enquanto rola a página */
+    background-attachment: fixed;
 }
 
 /* Cabeçalho */
@@ -22,32 +22,50 @@ header {
 }
 
 #logo {
-    width: 250px; /* Logo menor */
+    width: 250px;
     height: auto;
     max-width: 100%;
-    border-radius: 50%; /* Logo arredondado */
-    border: 5px solid #fff; /* Borda branca no logo */
+    border-radius: 50%;
+    border: 5px solid #fff;
 }
 
 h1 {
     font-size: 2.8rem;
     color: #fff;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra no título */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* Imagens lado a lado */
-.image-container {
+/* Carrossel de Banners */
+.carousel-container {
+    width: 80%;
+    max-width: 1000px;
+    overflow: hidden; /* Oculta banners fora da área visível */
+    margin: 30px 0;
+}
+
+.carousel {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    transition: transform 1s ease-in-out; /* Transição suave ao mover os banners */
 }
 
-.image-container img {
-    width: 220px; /* Tamanho ajustado das imagens */
+.banner {
+    width: 300px; /* Tamanho dos banners */
     height: auto;
-    border-radius: 15px; /* Bordas arredondadas nas imagens */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave nas imagens */
+    border-radius: 15px;
+    margin: 0 10px;
+    transition: transform 0.5s ease-in-out; /* Efeito de zoom suave */
+}
+
+.carousel .banner:nth-child(1) {
+    transform: scale(0.8); /* Banner esquerdo encolhido */
+}
+
+.carousel .banner:nth-child(2) {
+    transform: scale(1.2); /* Banner central aumentado */
+}
+
+.carousel .banner:nth-child(3) {
+    transform: scale(0.8); /* Banner direito encolhido */
 }
 
 /* Tocador de Música */
