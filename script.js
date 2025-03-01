@@ -52,7 +52,7 @@ const audioPlayer = document.getElementById('audioPlayer');
 window.onload = function() {
     audioPlayer.src = getRandomAudio(); // Carregar um áudio aleatório
     audioPlayer.play(); // Iniciar a reprodução
-    audioPlayer.loop = true; // Repetir o áudio até que seja trocado manualmente ou programaticamente
+    audioPlayer.loop = false; // Não repetir a música automaticamente
 };
 
 // Atualização das barras enquanto a música toca
@@ -76,4 +76,10 @@ audioPlayer.addEventListener('pause', function() {
         bar.style.animationPlayState = 'paused'; // Parar animação das barras
         bar.style.height = '60px'; // Voltar ao tamanho inicial
     });
+});
+
+// Quando a música terminar, carrega uma nova música aleatória
+audioPlayer.addEventListener('ended', function() {
+    audioPlayer.src = getRandomAudio(); // Carregar um áudio aleatório
+    audioPlayer.play(); // Reproduzir a nova música
 });
