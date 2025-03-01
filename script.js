@@ -95,7 +95,7 @@ function moveCarousel() {
     currentIndex = (currentIndex + 1) % banners.length;
     
     // Aplica a transformação de transição para os banners
-    carousel.style.transform = `translateX(-${(currentIndex * 320)}px)`; // 320px é a largura do banner + a margem
+    carousel.style.transform = `translateX(-${(currentIndex * 380)}px)`; // 380px é a largura do banner + a margem
 }
 
 // Inicia o movimento automático do carrossel a cada 3 segundos
