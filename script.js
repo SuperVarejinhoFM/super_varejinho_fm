@@ -80,6 +80,9 @@ nextButton.addEventListener('click', loadNextAudio);
 // Evento para o botão "Anterior"
 prevButton.addEventListener('click', loadPrevAudio);
 
+// Evento para avançar automaticamente quando a música terminar
+audioPlayer.addEventListener('ended', loadNextAudio);
+
 // Inicia o primeiro áudio
 audioPlayer.src = audios[currentAudioIndex];
 audioPlayer.play();
