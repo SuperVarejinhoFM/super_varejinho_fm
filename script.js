@@ -256,36 +256,37 @@ function playRandomAudio() {
 
     startBarsAnimation(); // Inicia a animação das barras
 
-    // Inicia o fade in/out para a transição suave entre as músicas
-    handleFadeTransition();
+    // Configura a transição entre as músicas
+    setupTransition();
 }
 
-// Função para iniciar o fade de transição entre músicas
-function handleFadeTransition() {
-    // Ajustar o tempo de transição
-    const fadeDuration = 5; // segundos
+// Função para configurar a transição entre músicas
+function setupTransition() {
+    const fadeDuration = 5; // duração da transição em segundos
+    const fadeOutVolumeStep = 0.05; // Passo de volume para diminuir o áudio atual
 
-    // Se a música atual está nos últimos 5 segundos, começa a transição
-    const fadeOutInterval = setInterval(function() {
+    // Aumenta o volume do áudio futuro e diminui o volume do áudio atual nos últimos 5 segundos
+    let fadeOutInterval = setInterval(function() {
         if (audioPlayer.currentTime >= audioPlayer.duration - fadeDuration) {
-            // Aumenta o volume do próximo áudio
+            // Começando o próximo áudio 5 segundos antes do final
             if (audioPlayer.volume < 1) {
-                audioPlayer.volume += 0.05;
+                audioPlayer.volume += 0.05; // Fade in da próxima música
+            }
+            if (audioPlayer.volume > 0) {
+                audioPlayer.volume -= fadeOutVolumeStep; // Diminui o volume do atual
             }
         }
-    }, 100);
+    }, 100); // Esse intervalo controla a quantidade de volume a cada 100ms
 
-    // Interromper o fadeOutInterval quando o áudio terminar
+    // Remover o intervalo quando o áudio terminar
     audioPlayer.addEventListener('ended', function() {
         clearInterval(fadeOutInterval);
     });
 
     // Atualiza a barra de progresso
     audioPlayer.addEventListener('timeupdate', function() {
-        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-        progressBar.value = progress;
-    });
-}
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 
+
 
 // Função para iniciar a animação das barras
 function startBarsAnimation() {
