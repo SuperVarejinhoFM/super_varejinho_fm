@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super Varejinho FM</title>
+    <!-- Link para o arquivo CSS com as media queries para responsividade -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Div que vai servir como fundo da página -->
+    <div class="background"></div>
+
+    <!-- Conteúdo da página -->
     <header>
         <div id="logo-container">
             <img src="./RADIO/images/logo.png" alt="Logo" id="logo">
@@ -15,16 +20,17 @@
     
     <div class="music-player">
         <h2>Tocando Agora</h2>
-        <audio id="audioPlayer" controls autoplay></audio> <!-- Audio player agora tocando automaticamente -->
+        <!-- Player de áudio, que agora vai tocar automaticamente -->
+        <audio id="audioPlayer" controls autoplay></audio>
 
         <!-- Barra de áudio com animação para o efeito visual -->
         <div class="audio-bar-container">
-            <div id="audioBar" class="audio-bar"></div>
-            <div id="audioBar" class="audio-bar"></div>
-            <div id="audioBar" class="audio-bar"></div>
-            <div id="audioBar" class="audio-bar"></div>
-            <div id="audioBar" class="audio-bar"></div>
-            <div id="audioBar" class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
+            <div class="audio-bar"></div>
         </div>
     </div>
 
@@ -32,6 +38,7 @@
         <p>&copy; 2025 Super Varejinho FM. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Link para o arquivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
