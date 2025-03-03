@@ -255,39 +255,6 @@ function playRandomAudio() {
     playCount++; // Incrementa o contador de músicas tocadas
 
     startBarsAnimation(); // Inicia a animação das barras
-
-    // Configura a transição entre as músicas
-    setupTransition();
-}
-
-// Função para configurar a transição entre músicas
-function setupTransition() {
-    const fadeDuration = 5; // duração da transição em segundos
-    const fadeOutVolumeStep = 0.05; // Passo de volume para diminuir o áudio atual
-
-    // Aumenta o volume do áudio futuro e diminui o volume do áudio atual nos últimos 5 segundos
-    let fadeOutInterval = setInterval(function() {
-        if (audioPlayer.currentTime >= audioPlayer.duration - fadeDuration) {
-            // Começando o próximo áudio 5 segundos antes do final
-            if (audioPlayer.volume < 1) {
-                audioPlayer.volume += 0.05; // Fade in da próxima música
-            }
-            if (audioPlayer.volume > 0) {
-                audioPlayer.volume -= fadeOutVolumeStep; // Diminui o volume do atual
-            }
-        }
-    }, 100); // Esse intervalo controla a quantidade de volume a cada 100ms
-
-    // Remover o intervalo quando o áudio terminar
-    audioPlayer.addEventListener('ended', function() {
-        clearInterval(fadeOutInterval);
-    });
-
-    // Atualiza a barra de progresso
-    audioPlayer.addEventListener('timeupdate', function() {
-        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-        progressBar.style.width = progress + '%'; // Atualiza o progresso visual
-    });
 }
 
 // Função para iniciar a animação das barras
