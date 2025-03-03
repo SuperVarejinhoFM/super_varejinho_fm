@@ -255,6 +255,36 @@ function playRandomAudio() {
     playCount++; // Incrementa o contador de músicas tocadas
 
     startBarsAnimation(); // Inicia a animação das barras
+
+    // Inicia o fade in/out para a transição suave entre as músicas
+    handleFadeTransition();
+}
+
+// Função para iniciar o fade de transição entre músicas
+function handleFadeTransition() {
+    // Ajustar o tempo de transição
+    const fadeDuration = 5; // segundos
+
+    // Se a música atual está nos últimos 5 segundos, começa a transição
+    const fadeOutInterval = setInterval(function() {
+        if (audioPlayer.currentTime >= audioPlayer.duration - fadeDuration) {
+            // Aumenta o volume do próximo áudio
+            if (audioPlayer.volume < 1) {
+                audioPlayer.volume += 0.05;
+            }
+        }
+    }, 100);
+
+    // Interromper o fadeOutInterval quando o áudio terminar
+    audioPlayer.addEventListener('ended', function() {
+        clearInterval(fadeOutInterval);
+    });
+
+    // Atualiza a barra de progresso
+    audioPlayer.addEventListener('timeupdate', function() {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.value = progress;
+    });
 }
 
 // Função para iniciar a animação das barras
@@ -275,18 +305,6 @@ function stopBarsAnimation() {
 window.onload = function() {
     playRandomAudio(); // Toca a primeira música (aleatória)
 };
-
-// Atualizar a barra de progresso conforme a música vai tocando
-audioPlayer.addEventListener('timeupdate', function() {
-    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    progressBar.value = progress;
-
-    // Verifique se está nos últimos 5 segundos da música
-    if (audioPlayer.duration - audioPlayer.currentTime <= 5) {
-        // Inicie a próxima música nos últimos 5 segundos
-        playRandomAudio();
-    }
-});
 
 // Ao terminar o áudio, escolhe um novo áudio aleatório
 audioPlayer.addEventListener('ended', function() {
