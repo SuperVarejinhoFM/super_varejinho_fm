@@ -280,6 +280,12 @@ window.onload = function() {
 audioPlayer.addEventListener('timeupdate', function() {
     const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     progressBar.value = progress;
+
+    // Verifique se está nos últimos 5 segundos da música
+    if (audioPlayer.duration - audioPlayer.currentTime <= 5) {
+        // Inicie a próxima música nos últimos 5 segundos
+        playRandomAudio();
+    }
 });
 
 // Ao terminar o áudio, escolhe um novo áudio aleatório
