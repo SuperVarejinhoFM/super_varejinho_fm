@@ -1,8 +1,8 @@
 /* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url('./RADIO/images/BG.png');
-    background-size: cover; /* Garante que a imagem de fundo cubra toda a tela */
+    background-image: url('./RADIO/images/BG.png'); /* Verifique se esse caminho está correto */
+    background-size: cover; /* Faz com que a imagem de fundo cubra toda a tela */
     background-position: center center; /* Garante que a imagem de fundo fique centralizada */
     margin: 0;
     padding: 0;
@@ -112,13 +112,6 @@ footer p {
 
 /* Ajuste para telas pequenas (celulares) */
 @media (max-width: 600px) {
-    /* Ajuste o papel de parede para telas pequenas */
-    body {
-        background-image: url('./RADIO/images/BG-mobile.png'); /* Alterando a imagem de fundo para a versão mobile */
-        background-size: cover; /* Faz com que a imagem cubra toda a tela */
-        background-position: center center; /* Garante que a imagem fique bem posicionada */
-    }
-
     header {
         height: 180px; /* Reduz a altura do cabeçalho em telas pequenas */
     }
@@ -146,13 +139,6 @@ footer p {
 
 /* Ajuste para telas médias (tablets) */
 @media (max-width: 1024px) {
-    /* Ajuste o papel de parede para tablets */
-    body {
-        background-image: url('./RADIO/images/BG-tablet.png'); /* Alterando a imagem de fundo para a versão tablet */
-        background-size: cover; /* Faz com que a imagem cubra toda a tela */
-        background-position: center center; /* Garante que a imagem fique bem posicionada */
-    }
-
     header {
         height: 200px; /* Cabeçalho com altura média para tablets */
     }
@@ -179,13 +165,6 @@ footer p {
 
 /* Ajuste para telas grandes (desktops) */
 @media (min-width: 1025px) {
-    /* Ajuste o papel de parede para desktops */
-    body {
-        background-image: url('./RADIO/images/BG-desktop.png'); /* Alterando a imagem de fundo para a versão desktop */
-        background-size: cover; /* Faz com que a imagem cubra toda a tela */
-        background-position: center center; /* Garante que a imagem fique bem posicionada */
-    }
-
     header {
         height: 220px; /* Tamanho padrão do cabeçalho para desktops */
     }
