@@ -273,7 +273,20 @@ function stopBarsAnimation() {
 
 // Evento para o botão de "Play" quando a página carrega
 window.onload = function() {
-    playRandomAudio(); // Toca a primeira música (aleatória)
+    // Tenta tocar o áudio automaticamente
+    const playPromise = audioPlayer.play();
+
+    // Verifica se o navegador permite a reprodução automática
+    if (playPromise !== undefined) {
+        playPromise.then(function() {
+            // A música começou a tocar automaticamente
+            playRandomAudio(); // Toca a primeira música (aleatória)
+        }).catch(function(error) {
+            // Se a reprodução automática falhar (provavelmente devido a bloqueio do navegador),
+            // você pode exibir uma mensagem ou tentar uma interação do usuário
+            console.log('Erro ao tentar tocar o áudio automaticamente: ' + error);
+        });
+    }
 };
 
 // Ao terminar o áudio, escolhe um novo áudio aleatório
