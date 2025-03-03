@@ -2,8 +2,8 @@
 body {
     font-family: 'Arial', sans-serif;
     background-image: url('./RADIO/images/BG.png');
-    background-size: cover;
-    background-position: center center;
+    background-size: cover; /* Garante que a imagem de fundo cubra toda a tela */
+    background-position: center center; /* Garante que a imagem de fundo fique centralizada */
     margin: 0;
     padding: 0;
     color: #fff;
@@ -14,20 +14,7 @@ body {
     min-height: 100vh;
     text-align: center;
     background-attachment: fixed;
-}
-
-/* Fundo da página */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./RADIO/images/BG.png'); /* Imagem de fundo padrão */
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px);
-    z-index: -1;
+    overflow-x: hidden; /* Impede a rolagem horizontal */
 }
 
 /* Cabeçalho - Movendo para o topo */
@@ -125,8 +112,11 @@ footer p {
 
 /* Ajuste para telas pequenas (celulares) */
 @media (max-width: 600px) {
-    .background {
-        background-image: url('./RADIO/images/BG-mobile.png'); /* Papel de parede para celular */
+    /* Ajuste o papel de parede para telas pequenas */
+    body {
+        background-image: url('./RADIO/images/BG-mobile.png'); /* Alterando a imagem de fundo para a versão mobile */
+        background-size: cover; /* Faz com que a imagem cubra toda a tela */
+        background-position: center center; /* Garante que a imagem fique bem posicionada */
     }
 
     header {
@@ -156,8 +146,11 @@ footer p {
 
 /* Ajuste para telas médias (tablets) */
 @media (max-width: 1024px) {
-    .background {
-        background-image: url('./RADIO/images/BG-tablet.png'); /* Papel de parede para tablet */
+    /* Ajuste o papel de parede para tablets */
+    body {
+        background-image: url('./RADIO/images/BG-tablet.png'); /* Alterando a imagem de fundo para a versão tablet */
+        background-size: cover; /* Faz com que a imagem cubra toda a tela */
+        background-position: center center; /* Garante que a imagem fique bem posicionada */
     }
 
     header {
@@ -186,8 +179,11 @@ footer p {
 
 /* Ajuste para telas grandes (desktops) */
 @media (min-width: 1025px) {
-    .background {
-        background-image: url('./RADIO/images/BG-desktop.png'); /* Papel de parede para desktop */
+    /* Ajuste o papel de parede para desktops */
+    body {
+        background-image: url('./RADIO/images/BG-desktop.png'); /* Alterando a imagem de fundo para a versão desktop */
+        background-size: cover; /* Faz com que a imagem cubra toda a tela */
+        background-position: center center; /* Garante que a imagem fique bem posicionada */
     }
 
     header {
