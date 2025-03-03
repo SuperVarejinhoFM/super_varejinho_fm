@@ -29,10 +29,11 @@ const audios = [
     'RADIO/audio/audio32.mp3',
     'RADIO/audio/audio33.mp3',
     'RADIO/audio/audio34.mp3',
-    'RADIO/audio/audio35.mp3'],
-  
-    // Array com os caminhos dos arquivos de áudio das ofertas
-    offerAudios = [
+    'RADIO/audio/audio35.mp3'
+];
+
+// Array com os caminhos dos arquivos de áudio das ofertas
+const offerAudios = [
     'RADIO/audio/audio6_oferta1.mp3',
     'RADIO/audio/audio12_oferta2.mp3',
     'RADIO/audio/audio18_oferta3.mp3',
@@ -43,6 +44,7 @@ const audios = [
 
 let currentAudioIndex = 0;
 let playCount = 0; // Conta o número de músicas tocadas
+let offerAudioIndex = 0; // Índice para controlar a sequência das ofertas
 const audioPlayer = document.getElementById('audioPlayer');
 const progressBar = document.getElementById('progressBar');
 const audioBars = document.querySelectorAll('.audio-bar'); // Selecione todas as barras de áudio
@@ -51,11 +53,11 @@ const audioBars = document.querySelectorAll('.audio-bar'); // Selecione todas as
 function playRandomAudio() {
     let audioSource;
 
-    // Se tivermos tocado 5 músicas, escolhemos uma oferta aleatória
+    // Se tivermos tocado 5 músicas, escolhemos uma oferta (seguindo a sequência)
     if (playCount % 5 === 0 && playCount !== 0) {
-        // Escolhe uma música de oferta aleatória
-        const randomOfferIndex = Math.floor(Math.random() * offerAudios.length);
-        audioSource = offerAudios[randomOfferIndex];
+        // Toca o próximo áudio da lista de ofertas
+        audioSource = offerAudios[offerAudioIndex];
+        offerAudioIndex = (offerAudioIndex + 1) % offerAudios.length; // Move para o próximo áudio de oferta
     } else {
         // Caso contrário, escolhemos uma música regular aleatória
         const randomAudioIndex = Math.floor(Math.random() * audios.length);
