@@ -164,6 +164,7 @@ const offerAudios = [
 let currentAudioIndex = 0;
 let playCount = 0; // Conta o número de músicas tocadas
 let offerAudioIndex = 0; // Índice para controlar a sequência das ofertas
+let playedAudios = []; // Array para armazenar os áudios já tocados
 const audioPlayer = document.getElementById('audioPlayer');
 const progressBar = document.getElementById('progressBar');
 const audioBars = document.querySelectorAll('.audio-bar'); // Selecione todas as barras de áudio
@@ -178,9 +179,19 @@ function playRandomAudio() {
         audioSource = offerAudios[offerAudioIndex];
         offerAudioIndex = (offerAudioIndex + 1) % offerAudios.length; // Move para o próximo áudio de oferta
     } else {
-        // Caso contrário, escolhemos uma música regular aleatória
-        const randomAudioIndex = Math.floor(Math.random() * audios.length);
+        // Escolher um áudio aleatório da lista de áudios regulares, sem repetição
+        let randomAudioIndex;
+        do {
+            randomAudioIndex = Math.floor(Math.random() * audios.length);
+        } while (playedAudios.includes(randomAudioIndex)); // Verifica se o áudio já foi tocado recentemente
+
         audioSource = audios[randomAudioIndex];
+        playedAudios.push(randomAudioIndex); // Armazena o áudio tocado
+
+        // Limita o histórico de áudios tocados para evitar que o array cresça indefinidamente
+        if (playedAudios.length > 5) {
+            playedAudios.shift(); // Remove o primeiro elemento do histórico (o mais antigo)
+        }
     }
 
     // Atualiza o índice e carrega a música
