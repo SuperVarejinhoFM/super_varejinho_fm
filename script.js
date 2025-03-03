@@ -201,7 +201,9 @@ const audios = [
     'RADIO/audio/audio199.mp3',
     'RADIO/audio/audio200.mp3',
     'RADIO/audio/audio201.mp3',
-    'RADIO/audio/audio202.mp3'
+    'RADIO/audio/audio202.mp3',
+    'RADIO/audio/audio203.mp3',
+    'RADIO/audio/audio204.mp3'
 ];
 
 // Array com os caminhos dos arquivos de áudio das ofertas
