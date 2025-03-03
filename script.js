@@ -285,8 +285,10 @@ function setupTransition() {
 
     // Atualiza a barra de progresso
     audioPlayer.addEventListener('timeupdate', function() {
-        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 
-
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.style.width = progress + '%'; // Atualiza o progresso visual
+    });
+}
 
 // Função para iniciar a animação das barras
 function startBarsAnimation() {
